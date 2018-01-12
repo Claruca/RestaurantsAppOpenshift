@@ -15,10 +15,51 @@ public class TestServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Set response content type
+        Integer a = (Integer) request.getSession().getAttribute("pepito");
+
+        if (a == null) {
+
+            a = 1;
+        } else {
+            a += 1;
+        }
+        request.getSession().setAttribute("pepito", a);
+
+        // Actual logic goes here.
+        PrintWriter out = response.getWriter();
+        out.println("<h1>Test Servleeeeeeet</h1>");
+        //out.println("<h1>Hello "+request.getParameter("nom")+"</h1>");
+        out.println("<h1>" + a + "</h1>");
+
+
+
+
+
+
+
+
+/*
+ // Set response content type
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         out.println("<h1>Test Servleeeeeeet</h1>");
+
+
+
+
+        if (request.getSession().getAttribute("user") != null) {
+
+            ArrayList Restaurant = new ArrayList();
+            Restaurant.add(new Restaurant());
+            request.setAttribute("restaurants", Restaurant);
+            request.getDispatcher("mostrar.jsp").forward(request, response)
+        } else {
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        }
+
+ */
+
+// Exemple de sessió amb un objecte String
 
 
 
