@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="frontlayer:war">
+    <output-path>$PROJECT_DIR$/frontlayer/target</output-path>
+    <root id="archive" name="front-layer-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="frontlayer:war exploded" />
+    </root>
+  </artifact>
+</component>
