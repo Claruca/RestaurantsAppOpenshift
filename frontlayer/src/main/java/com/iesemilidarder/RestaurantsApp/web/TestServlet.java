@@ -1,5 +1,8 @@
+/*
 package com.iesemilidarder.RestaurantsApp.web;
 
+
+import com.iesemilidarder.RestaurantsApp.core.Restaurant;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -7,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 public class TestServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -15,8 +19,9 @@ public class TestServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Integer a = (Integer) request.getSession().getAttribute("pepito");
 
+
+        Integer a = (Integer) request.getSession().getAttribute("pepito");
         if (a == null) {
 
             a = 1;
@@ -38,7 +43,8 @@ public class TestServlet extends HttpServlet {
 
 
 
-/*
+
+
  // Set response content type
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
@@ -57,11 +63,10 @@ public class TestServlet extends HttpServlet {
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }
 
- */
 
-// Exemple de sessió amb un objecte String
 
 
 
     }
 }
+*/

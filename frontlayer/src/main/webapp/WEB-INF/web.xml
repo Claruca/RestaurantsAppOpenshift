@@ -10,12 +10,12 @@
         <welcome-file>/index.jsp</welcome-file>
     </welcome-file-list>
     <servlet>
-        <servlet-name>TestServlet</servlet-name>
-        <servlet-class>com.iesemilidarder.RestaurantsApp.web.TestServlet</servlet-class>
+        <servlet-name>showRestaurantServlet</servlet-name>
+        <servlet-class>com.iesemilidarder.RestaurantsApp.web.showRestaurantServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>TestServlet</servlet-name>
-        <url-pattern>/test</url-pattern>
+        <servlet-name>showRestaurantServlet</servlet-name>
+        <url-pattern>/servlet</url-pattern>
     </servlet-mapping>
 </web-app>

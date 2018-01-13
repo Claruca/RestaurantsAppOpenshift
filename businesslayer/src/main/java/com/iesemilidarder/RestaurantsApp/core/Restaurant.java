@@ -11,6 +11,7 @@ public class Restaurant {
     private String imatge;
     private String Mitjana;
 
+
     public void setMitjana(String mitjana) {
         Mitjana = mitjana;
     }
