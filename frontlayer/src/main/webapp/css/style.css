@@ -1,0 +1,59 @@
+
+/* Canvis en el bootstrap per defecte, modificant colors, fonts i tamany de fonts*/
+
+.row {
+    margin: 20px;
+}
+
+.fonsPrincipal {
+    background-color: #cef5ce;
+}
+
+.bg-dark {
+    background-color: seagreen !important;
+}
+
+.nav-link {
+    font-family: "Agency FB";
+    font-size: large;
+    font-weight: bold;
+}
+/* La imatge principal de la barra de navegació*/
+.jumbotron {
+    /* background-color: #79d2b0; */
+    background-image: url("../img/Roastedcoffee.jpg");
+}
+/*Imatges de la BD */
+img {
+    border-style: double;
+}
+
+body{
+  color: #1d1f1b;
+
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
+    color: #709e91;
+
+}
+h1{
+    color: #FFFFFF;
+}
+
+h2{
+    font-family: Arial, sans-serif;
+    display: block;
+    color: white;
+}
+
+h4{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color:rgb(26, 26, 26);
+}
+
+.pagination {
+    margin-left: auto;
+    ;
+}
