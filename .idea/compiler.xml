@@ -6,14 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="api-rest" />
         <module name="apirest" />
+        <module name="business-layer" />
         <module name="businesslayer" />
+        <module name="front-layer" />
         <module name="frontlayer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="api-rest" target="1.5" />
       <module name="apirest" target="1.5" />
+      <module name="business-layer" target="1.5" />
       <module name="businesslayer" target="1.5" />
+      <module name="front-layer" target="1.5" />
       <module name="frontlayer" target="1.5" />
       <module name="RestaurantsApp" target="1.5" />
     </bytecodeTargetLevel>
