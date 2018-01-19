@@ -11,11 +11,19 @@
     </welcome-file-list>
     <servlet>
         <servlet-name>showRestaurantServlet</servlet-name>
-        <servlet-class>com.iesemilidarder.RestaurantsApp.web.showRestaurantServlet</servlet-class>
+        <servlet-class>com.iesemilidarder.restaurants.web.showRestaurantServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>showRestaurantServlet</servlet-name>
-        <url-pattern>/servlet</url-pattern>
+        <url-pattern>/servlet/*</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>MostrarRestaurants</servlet-name>
+        <jsp-file>/MostraRestaurants.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MostrarRestaurants</servlet-name>
+        <url-pattern>/MostrarRestaurants</url-pattern>
+    </servlet-mapping>
+
 </web-app>

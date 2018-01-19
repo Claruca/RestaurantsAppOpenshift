@@ -1,8 +1,14 @@
-package com.iesemilidarder.RestaurantsApp.core;
+package com.iesemilidarder.restaurants.web;
 
+
+import java.awt.*;
+import java.sql.Blob;
 import java.util.ArrayList;
 
+
+
 public class Restaurant {
+    private String codi;
     private String nom;
     private String adressa;
     private String llocweb;
@@ -10,18 +16,10 @@ public class Restaurant {
     private String tipus;
     private String imatge;
     private String Mitjana;
+    private String Latitud;
+    private String Longitud;
 
-
-    public void setMitjana(String mitjana) {
-        Mitjana = mitjana;
-    }
-
-    public String getMitjana() {
-
-        return Mitjana;
-    }
-
-    public ArrayList Opinions;
+    private ArrayList<Opinions> Opinions;
 
     public String getNom() {
         return nom;
@@ -43,6 +41,36 @@ public class Restaurant {
         return tipus;
     }
 
+    public String getMitjana() { return Mitjana; }
+
+    public String getCodi() { return codi; }
+
+    public String getImatge() {
+        return imatge;
+    }
+
+    public String getLatitud() {
+        return Latitud;
+    }
+
+    public String getLongitud() {
+        return Longitud;
+    }
+
+    public ArrayList<Opinions> getOpinions() {
+        return Opinions;
+    }
+
+    public void setOpinions(ArrayList<Opinions> opinions) {
+        Opinions = opinions;
+    }
+
+    public void setCodi(String codi) { this.codi = codi; }
+
+    public void setMitjana(String mitjana) {
+        Mitjana = mitjana;
+    }
+
     public void setNom(String nom) {
         this.nom = nom;
     }
@@ -56,14 +84,9 @@ public class Restaurant {
         this.imatge = imatge;
     }
 
-    public String getImatge() {
-        return imatge;
-    }
 
     public void setLlocweb(String llocweb) {
         this.llocweb = llocweb;
-
-
     }
 
     public void setTelefon(String telefon) {
@@ -73,4 +96,14 @@ public class Restaurant {
     public void setTipus(String tipus) {
         this.tipus = tipus;
     }
+
+    public void setLatitud(String latitud) {
+        Latitud = latitud;
+    }
+
+    public void setLongitud(String longitud) {
+        Longitud = longitud;
+    }
+
 }
+

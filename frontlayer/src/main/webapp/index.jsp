@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.iesemilidarder.RestaurantsApp.core.LlegirBD" %>
-<%@ page import="com.iesemilidarder.RestaurantsApp.core.Restaurant" %>
+<%@ page import="com.iesemilidarder.restaurants.web.LlegirBD" %>
+<%@ page import="com.iesemilidarder.restaurants.web.Restaurant" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page import="java.util.ArrayList" %>
 
@@ -39,10 +39,10 @@
                 <a class="nav-link" href="index.jsp">Inici <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="test">Enllaç 1</a>
+                <a class="nav-link" href="servlet">Enllaç 1</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="test">Enllaç 2</a>
+                <a class="nav-link" href="servlet">Enllaç 2</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -60,7 +60,7 @@
         <div class="container">
             <h1 class="display-3">Restaurants</h1>
             <h2>Els millors restaurants de Mallorca</h2>
-            <p><a class="btn btn-primary btn-lg" href="showRestaurantServlet" role="button">Saber-ne més &raquo;</a></p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">Saber-ne més &raquo;</a></p>
         </div>
     </div>
 
@@ -85,6 +85,8 @@
                         "<p>" + res.getTelefon() + "</p>" +
                         "<p>" + res.getTipus() + "</p>" +
                         "<p>" + res.getMitjana() + "</p>" +
+                        "<p>" + "<a class=\"btn btn-secondary\" href=\"/servlet?id=" + res.getCodi() + "\" role=\"button\">" + "Més informació &raquo;</a>" + "</p>" +
+                                                            /*Aqui hi ha d'haver un /showrest?id=res_codi*/
 
                         "</div >" +
                         "</div >"
@@ -123,7 +125,7 @@
 </div>
 
 <footer class="container">
-    <p>&reg; Clara Marti Alberti</p> <!--El copyright>
+    <p>&copy Clara Marti Alberti</p> <!--El copyright>
 </footer>
 
 <!-- Optional JavaScript -->
