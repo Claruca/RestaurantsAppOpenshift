@@ -15,13 +15,13 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="api-rest" target="1.5" />
+      <module name="api-rest" target="1.8" />
       <module name="apirest" target="1.5" />
-      <module name="business-layer" target="1.5" />
+      <module name="business-layer" target="1.8" />
       <module name="businesslayer" target="1.5" />
-      <module name="front-layer" target="1.5" />
+      <module name="front-layer" target="1.8" />
       <module name="frontlayer" target="1.5" />
-      <module name="RestaurantsApp" target="1.5" />
+      <module name="RestaurantsApp" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
