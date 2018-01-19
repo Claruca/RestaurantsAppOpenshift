@@ -1,4 +1,7 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.iesemilidarder.RestaurantsApp.core.DBObject;
+import com.iesemilidarder.RestaurantsApp.core.LlegirBD;
+import com.iesemilidarder.RestaurantsApp.core.Restaurant;
 import com.iesemilidarder.RestaurantsApp.core.User;
 import freemarker.template.Configuration;
 import org.apache.commons.lang3.StringUtils;
@@ -32,12 +35,8 @@ public class Launcher {
         log.info("Loading finished");
     }
 
-    /**
-     * Method to check html output or not
-     *
-     * @param request
-     * @return
-     */
+
+
     private static boolean shouldReturnHtml(Request request) {
         String accept = request.headers("Accept");
         return StringUtils.contains(accept, "text/html");
@@ -65,7 +64,7 @@ public class Launcher {
     public static void main(String... args) {
         staticFiles.location("/public");
         init();
-        port(8080);
+        port(8090);
         /*
         if (localhost) {
             String projectDir = System.getProperty("user.dir");
@@ -77,12 +76,13 @@ public class Launcher {
         //hello world for dummies, via lambdas
         get("/hello", (req, res) -> "Hello World");
         //json response way1: via spark renderer
-        get("/json", "application/json", (request, response) -> {
+        /*get("/json", "application/json", (request, response) -> {
             User user = new User();
             user.setName("Hello world!");
             return user;
-        }, new JsonTransformer());
+        }, new JsonTransformer());*/
         //biconditional response way2: via jackson
+
         get("/users", (request, response) -> {
             if (shouldReturnHtml(request)) {
                 Map<String, Object> model = new HashMap<>();
@@ -99,19 +99,24 @@ public class Launcher {
                 return mapper.writeValueAsString(lUser);
             }
         });
-        /*get("/scrap",(request,response)->{
-            Map<String, Object> model = new HashMap<>();
-            String query = ".center-content";
-            String url = "https://www.meneame.net/";
-            ScrappingCommand cmd = new ScrappingCommand(url, query);
-            model.put("title", "Scrapping");
-            model.put("url", url);
-            model.put("element", query);
-            model.put("content", cmd.getResult());
-            return getFreemarkerEngine().render(
-                    new ModelAndView(model, "scrapView.ftl")
-            );
-        });*/
+        get("/restaurants", (request, response) -> {
+            LlegirBD dbHelper = new LlegirBD();
+            List<Restaurant> rtn = dbHelper.getRestaurants(StringUtils.EMPTY);
+            if (shouldReturnHtml(request)) {
+                Map<String, Object> model = new HashMap<>();
+                model.put("posts", rtn);
+                model.put("title", "Users");
+                model.put("subtitle", "List of all users");
+                return getFreemarkerEngine().render(
+                        new ModelAndView(model, "basicView.ftl")
+                );
+            } else {
+                CorsFilter.apply();
+                ObjectMapper mapper = new ObjectMapper();
+                setResponseHeader(response, false);
+                return mapper.writeValueAsString(rtn);
+            }
+        });
     }
 
 }

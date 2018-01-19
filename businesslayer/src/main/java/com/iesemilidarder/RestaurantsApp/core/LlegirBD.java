@@ -1,17 +1,19 @@
-package com.iesemilidarder.restaurants.web;
+
+package com.iesemilidarder.RestaurantsApp.core;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 
 //En aquesta classe definim la connexió a la BD
 
 public class LlegirBD {
 
-    public ArrayList MostrarRes(String consulta) {
+    public List<Restaurant> getRestaurants(String consulta) {
         //Creació d'una array list
         ArrayList ar = new ArrayList();
 
@@ -24,7 +26,7 @@ public class LlegirBD {
 
             Statement stmt = con.createStatement();
 
-            //Si el paràmetre consulta de la ArrayList MostrarRes ens dona null, executarà la consulta sql establerta. Per poder fer una cerca al formulari, transformam els valors en minúscula
+            //Si el paràmetre consulta de la ArrayList getRestaurants ens dona null, executarà la consulta sql establerta. Per poder fer una cerca al formulari, transformam els valors en minúscula
             ResultSet rs;
             if (consulta == null) {
                 rs = stmt.executeQuery("SELECT * FROM restaurants res JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI AND ROWNUM <=5 ORDER BY RES_MITJANA DESC ");

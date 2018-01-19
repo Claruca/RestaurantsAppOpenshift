@@ -1,6 +1,6 @@
-<%@ page import="com.iesemilidarder.restaurants.web.Restaurant" %>
+<%@ page import="com.iesemilidarder.RestaurantsApp.core.Restaurant" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.iesemilidarder.restaurants.web.Opinions" %>
+<%@ page import="com.iesemilidarder.RestaurantsApp.core.Opinions" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>

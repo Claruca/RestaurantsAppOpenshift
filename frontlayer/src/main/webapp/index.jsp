@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.iesemilidarder.restaurants.web.LlegirBD" %>
-<%@ page import="com.iesemilidarder.restaurants.web.Restaurant" %>
+<%@ page import="com.iesemilidarder.RestaurantsApp.core.LlegirBD" %>
+<%@ page import="com.iesemilidarder.RestaurantsApp.core.Restaurant" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page import="java.util.ArrayList" %>
 
@@ -72,7 +72,7 @@
         </div>
         <% //Codi java que ens treu els valors de la consulta amb un iterador de la arraylist
             LlegirBD llegirBd = new LlegirBD();
-            ArrayList ar = llegirBd.MostrarRes(request.getParameter("consulta"));
+            ArrayList ar = (ArrayList) llegirBd.getRestaurants(request.getParameter("consulta"));
             Iterator itr = ar.iterator();
             while (itr.hasNext()) {
                 Restaurant res = (Restaurant) itr.next();

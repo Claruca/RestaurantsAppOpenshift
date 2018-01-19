@@ -11,7 +11,7 @@
     </welcome-file-list>
     <servlet>
         <servlet-name>showRestaurantServlet</servlet-name>
-        <servlet-class>com.iesemilidarder.restaurants.web.showRestaurantServlet</servlet-class>
+        <servlet-class>com.iesemilidarder.RestaurantsApp.web.showRestaurantServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>showRestaurantServlet</servlet-name>

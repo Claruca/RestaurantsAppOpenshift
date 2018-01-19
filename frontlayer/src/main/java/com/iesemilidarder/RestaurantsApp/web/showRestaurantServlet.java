@@ -1,4 +1,7 @@
-package com.iesemilidarder.restaurants.web;
+package com.iesemilidarder.RestaurantsApp.web;
+
+import com.iesemilidarder.RestaurantsApp.core.LlegirBD;
+import com.iesemilidarder.RestaurantsApp.core.Restaurant;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

@@ -1,4 +1,4 @@
-package com.iesemilidarder.restaurants.web;
+package com.iesemilidarder.RestaurantsApp.core;
 
 
 import java.awt.*;
