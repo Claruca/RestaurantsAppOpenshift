@@ -40,7 +40,6 @@
         </div>
     </div>
 
-    <#--prueba-->
 <#if posts??>
     <div class="row center mt-2">
         <#list posts as item>
