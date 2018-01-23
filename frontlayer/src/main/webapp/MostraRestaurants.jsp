@@ -66,10 +66,10 @@
         out.println("<h2>" + "Opinons restaurants " + "</h2>");
 
         for (Opinions opin : res.getOpinions()) {
-            out.println("<div>" + "<p>" + opin.getOpicodi() + "</p>" +
+            out.println("<div class =\"opis\">" + "<h5>" + "Codi observació: " + "</h5>" + "<p>" + opin.getOpicodi() + "</p>" +
                     "<h5>" + "Observació: " + "</h5>" + "<p>" + opin.getObservacio() + "</p>" +
-                    "<p>" + opin.getPuntuacio() + "</p>" +
-                    "<p>" + opin.getOpirevisada() + "</p>" + "</div>"
+                    "<h5>" + "Puntuació: " + "</h5>" + "<p>" + opin.getPuntuacio() + "</p>" +
+                    "<h5>" + "Opinió revisada: " + "</h5>" + "<p>" + opin.getOpirevisada() + "</p>" + "</div>"
             );
         }
 

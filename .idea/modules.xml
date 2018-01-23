@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/RestaurantsApp.iml" filepath="$PROJECT_DIR$/.idea/RestaurantsApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/RestaurantsApp.iml" filepath="$PROJECT_DIR$/RestaurantsApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/apirest/api-rest.iml" filepath="$PROJECT_DIR$/apirest/api-rest.iml" />
       <module fileurl="file://$PROJECT_DIR$/apirest/apirest.iml" filepath="$PROJECT_DIR$/apirest/apirest.iml" />
