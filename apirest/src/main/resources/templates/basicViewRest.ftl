@@ -11,7 +11,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">IES Emili Darder</a>
+    <a class="navbar-brand" href="#">Restaurantes</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -22,7 +22,7 @@
                 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#">Other actions</a>
+                <a class="nav-link disabled" href="#">Otros</a>
             </li>
         </ul>
     </div>
@@ -32,7 +32,7 @@
         <div class="col-md-7">
             <h1>${title!""}</h1>
             <h2 class="featurette-heading">${subtitle!""}
-                <br/><span class="text-muted">Porque molo mogollón.</span>
+                <br/><span class="text-muted">Obtén más info</span>
             </h2>
         </div>
         <div class="col-md-5">
@@ -46,11 +46,16 @@
             <div class="col-md-3">
                 <div class="media mt-5 ml-5">
                     <img class="align-self-start mr-3 rounded-circle"
-                         src="http://lorempixel.com/80/80"
+                         src="#${item.imatge!""}"
+                         <#--src="http://lorempixel.com/80/80"-->
                          alt="Random Image" width="80" height="80">
                     <div class="media-body">
-                        <h5 class="mt-0">ID #${item.id!""}</h5>
-                        <p>User Name: ${item.name!""}</p>
+                        <h5 class="mt-0">Nom ${item.nom!""}</h5>
+                        <p>Direcció: ${item.adressa!""}</p>
+                        <p>URL: ${item.llocweb!""}</p>
+                        <p>Telèfon: ${item.telefon!""}</p>
+                        <p>${item.tipus!""}</p>
+
                     </div>
                 </div>
             </div>
