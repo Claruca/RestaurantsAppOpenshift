@@ -39,6 +39,8 @@
             <img src="http://lorempixel.com/500/150"/>
         </div>
     </div>
+
+    <#--prueba-->
 <#if posts??>
     <div class="row center mt-2">
         <#list posts as item>
