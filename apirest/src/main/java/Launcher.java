@@ -101,20 +101,20 @@ public class Launcher {
         });
         get("/restaurants", (request, response) -> {
             LlegirBD dbHelper = new LlegirBD();
-            List<Restaurant> rtn = dbHelper.getRestaurants(StringUtils.EMPTY);
+            List<Restaurant> rest = dbHelper.MostrarRes(StringUtils.EMPTY);
             if (shouldReturnHtml(request)) {
                 Map<String, Object> model = new HashMap<>();
-                model.put("posts", rtn);
-                model.put("title", "Users");
-                model.put("subtitle", "List of all users");
+                model.put("posts", rest);
+                model.put("title", "Restaurants");
+                model.put("subtitle", "Llista de restaurants");
                 return getFreemarkerEngine().render(
-                        new ModelAndView(model, "templates/basicViewRest.ftl")
+                        new ModelAndView(model, "basicViewRest.ftl")
                 );
             } else {
                 CorsFilter.apply();
                 ObjectMapper mapper = new ObjectMapper();
                 setResponseHeader(response, false);
-                return mapper.writeValueAsString(rtn);
+                return mapper.writeValueAsString(rest);
             }
         });
     }

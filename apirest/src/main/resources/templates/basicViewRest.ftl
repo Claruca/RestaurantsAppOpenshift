@@ -46,7 +46,7 @@
             <div class="col-md-3">
                 <div class="media mt-5 ml-5">
                     <img class="align-self-start mr-3 rounded-circle"
-                         src="#${item.imatge!""}"
+                         src="${item.imatge!""}"
                          <#--src="http://lorempixel.com/80/80"-->
                          alt="Random Image" width="80" height="80">
                     <div class="media-body">

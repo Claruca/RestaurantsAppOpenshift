@@ -72,7 +72,7 @@
         </div>
         <% //Codi java que ens treu els valors de la consulta amb un iterador de la arraylist
             LlegirBD llegirBd = new LlegirBD();
-            ArrayList ar = (ArrayList) llegirBd.getRestaurants(request.getParameter("consulta"));
+            ArrayList ar = llegirBd.MostrarRes(request.getParameter("consulta"));
             Iterator itr = ar.iterator();
             while (itr.hasNext()) {
                 Restaurant res = (Restaurant) itr.next();
