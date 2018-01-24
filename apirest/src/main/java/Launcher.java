@@ -108,7 +108,7 @@ public class Launcher {
                 model.put("title", "Users");
                 model.put("subtitle", "List of all users");
                 return getFreemarkerEngine().render(
-                        new ModelAndView(model, "basicView.ftl")
+                        new ModelAndView(model, "templates/basicViewRest.ftl")
                 );
             } else {
                 CorsFilter.apply();
