@@ -40,7 +40,7 @@
         </div>
     </div>
 
-    <#--La variable posts a la que hacemos referencia en el Launcher tendrá la info de la BD-->
+<#--La variable posts a la que hacemos referencia en el Launcher tendrá la info de la BD-->
 <#if posts??>
     <div class="row center mt-2">
         <#list posts as item> <#-- Llamamos a los posts item y los listamos-->
@@ -48,7 +48,7 @@
                 <div class="media mt-5 ml-5">
                     <img class="align-self-start mr-3 rounded-circle"
                          src="${item.imatge!""}"
-                         <#--src="http://lorempixel.com/80/80"-->
+                    <#--src="http://lorempixel.com/80/80"-->
                          alt="Random Image" width="80" height="80">
                     <div class="media-body">
                         <h5 class="mt-0">Nom ${item.nom!""}</h5>
@@ -56,6 +56,7 @@
                         <p>URL: ${item.llocweb!""}</p>
                         <p>Telèfon: ${item.telefon!""}</p>
                         <p>${item.tipus!""}</p>
+                        <p>Nota: ${item.mitjana!""}</p>
                     </div>
                 </div>
             </div>
