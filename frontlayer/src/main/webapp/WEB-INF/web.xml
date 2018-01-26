@@ -26,5 +26,4 @@
         <servlet-name>MostrarRestaurants</servlet-name>
         <url-pattern>/MostrarRestaurants</url-pattern>
     </servlet-mapping>
-
 </web-app>
