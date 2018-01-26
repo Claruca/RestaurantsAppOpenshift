@@ -45,8 +45,9 @@
 </nav>
 <%
 
-
+    //A la variable res de tipus restaurant li deim que es l'atribut del request
     Restaurant res = (Restaurant) request.getAttribute("res");
+    //Si no és null imprimim un restaurant
 
     if (res != null) {
         out.println("<div class=\"row\">" +
@@ -65,6 +66,8 @@
 
         out.println("<h2>" + "Opinons restaurants " + "</h2>");
 
+        //Treim les opinions de l'array amb un foreach
+
         for (Opinions opin : res.getOpinions()) {
             out.println("<div class =\"opis\">" + "<h5>" + "Codi observació: " + "</h5>" + "<p>" + opin.getOpicodi() + "</p>" +
                     "<h5>" + "Observació: " + "</h5>" + "<p>" + opin.getObservacio() + "</p>" +
@@ -75,6 +78,32 @@
 
     }
 %>
+
+<div class="pagination">
+    <ul class="pagination pagination-lg">
+        <li class="page-item disabled">
+            <a class="page-link" href="#">&laquo;</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="/servlet?id=1">1</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="/servlet?id=2">2</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="/servlet?id=3">3</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="/servlet?id=4">4</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="/servlet?id=5">5</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">&raquo;</a>
+        </li>
+    </ul>
+</div>
 
 </body>
 </html>

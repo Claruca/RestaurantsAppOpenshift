@@ -19,25 +19,12 @@ public class showRestaurantServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         LlegirBD bd = new LlegirBD();
+        //Nova instància de la classe LlegirBD per poder agafar el paràmetre de la sessió i definir l'atribut
 
         String id = request.getParameter("id");
         Restaurant res = bd.MostrarResInfo(id);
         request.setAttribute("res", res);
+        //Aquí enviam el servlet cap a un altre jsp
         request.getRequestDispatcher("MostrarRestaurants").forward(request, response);
-
-        //  PrintWriter out = response.getWriter();
-        //out.println("<h1>Test Servleeeeeeet</h1>");
-
-
     }
 }
-
-/*Request.getparameter("id)
-* Restaurant rest=llegirDb.Mostrarres(id)
-* ArrayList opinions=llegirdb.mostraropi(id)
-* request.setatribute("restaurant", rest);
-* request.setAtribute ("opi", opinions);
-* request.getDispacher("OTRO.jsp").forward(request,response)
-*
-*
-*/

@@ -13,6 +13,7 @@
         <servlet-name>showRestaurantServlet</servlet-name>
         <servlet-class>com.iesemilidarder.RestaurantsApp.web.showRestaurantServlet</servlet-class>
     </servlet>
+    <!--Mapping de servlet y de jsp-->
     <servlet-mapping>
         <servlet-name>showRestaurantServlet</servlet-name>
         <url-pattern>/servlet/*</url-pattern>

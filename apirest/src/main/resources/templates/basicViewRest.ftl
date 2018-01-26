@@ -40,9 +40,10 @@
         </div>
     </div>
 
+    <#--La variable posts a la que hacemos referencia en el Launcher tendrá la info de la BD-->
 <#if posts??>
     <div class="row center mt-2">
-        <#list posts as item>
+        <#list posts as item> <#-- Llamamos a los posts item y los listamos-->
             <div class="col-md-3">
                 <div class="media mt-5 ml-5">
                     <img class="align-self-start mr-3 rounded-circle"
@@ -55,7 +56,6 @@
                         <p>URL: ${item.llocweb!""}</p>
                         <p>Telèfon: ${item.telefon!""}</p>
                         <p>${item.tipus!""}</p>
-
                     </div>
                 </div>
             </div>

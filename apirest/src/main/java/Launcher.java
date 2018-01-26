@@ -99,9 +99,11 @@ public class Launcher {
                 return mapper.writeValueAsString(lUser);
             }
         });
+        //En el Path /restaurants creamos una instancia de LlegirBD llamada dbHelper y utlizamos el método MostrarRes.
         get("/restaurants", (request, response) -> {
             LlegirBD dbHelper = new LlegirBD();
             List<Restaurant> rest = dbHelper.MostrarRes(StringUtils.EMPTY);
+            //Creamos un HashMap para obtener los datos de la BD y los envía a un freemarker
             if (shouldReturnHtml(request)) {
                 Map<String, Object> model = new HashMap<>();
                 model.put("posts", rest);

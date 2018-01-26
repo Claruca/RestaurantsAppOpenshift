@@ -1,8 +1,4 @@
 package com.iesemilidarder.RestaurantsApp.core;
-
-
-import java.awt.*;
-import java.sql.Blob;
 import java.util.ArrayList;
 
 
@@ -18,6 +14,8 @@ public class Restaurant {
     private String Mitjana;
     private String Latitud;
     private String Longitud;
+
+    //Cream arraylist de la classe opinons
 
     private ArrayList<Opinions> Opinions;
 

@@ -86,7 +86,7 @@
                         "<p>" + res.getTipus() + "</p>" +
                         "<p>" + res.getMitjana() + "</p>" +
                         "<p>" + "<a class=\"btn btn-secondary\" href=\"/servlet?id=" + res.getCodi() + "\" role=\"button\">" + "Més informació &raquo;</a>" + "</p>" +
-                                                            /*Aqui hi ha d'haver un /showrest?id=res_codi*/
+                        //El botó anirà a la URL i mirarà que el paràmetre id sigui igual al codi del restaurant
 
                         "</div >" +
                         "</div >"
@@ -97,7 +97,7 @@
 
 </main>
 
-<!--Aquí he afegit una barra de sel·lecció de pàgines que ens duen a la mateixa -->
+<!--Aquí he afegit una barra de sel·lecció de pàgines que ens duen cada un a un restaurant diferent -->
 <div class="pagination">
     <ul class="pagination pagination-lg">
         <li class="page-item disabled">
