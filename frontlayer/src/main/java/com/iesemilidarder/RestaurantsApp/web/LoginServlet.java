@@ -1,10 +1,12 @@
 package com.iesemilidarder.RestaurantsApp.web;
+
 import com.iesemilidarder.RestaurantsApp.core.Usuaris;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.sql.Connection;
@@ -36,63 +38,49 @@ public class LoginServlet extends HttpServlet {
     private boolean usuari_valid(String usuari, String password) {
 
         boolean resultat = false;
-
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection con = DriverManager.getConnection(
                     "jdbc:oracle:thin:@35.205.41.45:1521:XE", "usuari", "usuari");
 
-
             Statement stmt = con.createStatement();
             ResultSet rs;
-
             Usuaris usu = new Usuaris();
-
-
             rs = stmt.executeQuery("SELECT * FROM USUARIS WHERE USU_NOM ='" + usuari + "'");
-
             if (rs.next()) {
 
                 usu.setNom(rs.getString("USU_NOM"));
                 usu.setPassword(rs.getString("USU_PASSWORD"));
                 usu.setCodi(rs.getString("USU_CODI"));
 
-
-//                String usuloc = usu.getNom();
+                String usuloc = usu.getNom();
                 String usupass = usu.getPassword();
-
                 stmt.close(); //tancam connexions
                 con.close();
 
-
-                if (usupass.equals(sha256(password))) {
+                if (usuari.equals(usuloc)&& usupass.equals(sha256(password))) {
                     resultat = true;
-
                 } else {
                     System.out.println("Usuari no existeix");
                 }
-
             }
-
-        } catch (Exception e)
-
-        {
+        } catch (Exception e) {
             System.out.println((e.toString()));
         }
         return resultat;
-
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
         String nom = request.getParameter("usuari");
         String pass = request.getParameter("psw");
+        HttpSession session = request.getSession();
+        session.setAttribute("usuari", "");
 
-        if (usuari_valid(nom,pass)) {
+        if (usuari_valid(nom, pass)) {
             System.out.println("Correcte");
 
-        }else {
+        } else {
             System.out.println("Error");
         }
 
