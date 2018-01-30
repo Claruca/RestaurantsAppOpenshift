@@ -36,7 +36,6 @@ public class Launcher {
     }
 
 
-
     private static boolean shouldReturnHtml(Request request) {
         String accept = request.headers("Accept");
         return StringUtils.contains(accept, "text/html");
@@ -74,6 +73,9 @@ public class Launcher {
             staticFiles.location("/public");
         }*/
         //hello world for dummies, via lambdas
+
+        get("/prova", (req, res) -> "ExampleStaticFile.html");
+
         get("/hello", (req, res) -> "Hello World");
         //json response way1: via spark renderer
         /*get("/json", "application/json", (request, response) -> {
@@ -118,6 +120,8 @@ public class Launcher {
                 setResponseHeader(response, false);
                 return mapper.writeValueAsString(rest);
             }
+
+
         });
     }
 

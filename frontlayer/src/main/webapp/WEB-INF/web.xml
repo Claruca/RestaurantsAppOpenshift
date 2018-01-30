@@ -26,4 +26,15 @@
         <servlet-name>MostrarRestaurants</servlet-name>
         <url-pattern>/MostrarRestaurants</url-pattern>
     </servlet-mapping>
+
+    <!--Servlet login-->
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.iesemilidarder.RestaurantsApp.web.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
