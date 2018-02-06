@@ -1,15 +1,39 @@
 
 package com.iesemilidarder.RestaurantsApp.core;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Function;
 
 public class LlegirBD {
+    private static final String DRIVER = "oracle.jdbc.driver.OracleDriver";
+    private static final String THIN_URL = "jdbc:oracle:thin:@35.205.41.45:1521:XE";
+    private static final String USER = "usuari ";
+    private static final String PASSWORD = "usuari";
 
-    //Primer mètode per connectar-se
+    private Object searchDB(String query, Function<ResultSet, Object> f) {
+        Connection con;
+        Statement stmt;
+        try {
+            Class.forName(DRIVER);
+            con = DriverManager.getConnection(THIN_URL, USER, PASSWORD);
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            Object o = f.apply(rs);
+            stmt.close();
+            con.close();
+            return rs;
+
+        } catch (Exception e) {
+            return null;
+        }
+    }
 
     public ArrayList MostrarRes(String consulta) {
         //Creació de la array list
@@ -17,22 +41,30 @@ public class LlegirBD {
 
         //Intentam la connexió i sinó gestionam els errors
         try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection con = DriverManager.getConnection(
-                    "jdbc:oracle:thin:@35.205.41.45:1521:XE", "usuari", "usuari");
+            String query = StringUtils.EMPTY;
+            if(StringUtils.isEmpty(consulta)){
+                query = "SELECT * FROM restaurants res JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI AND ROWNUM <=5 ORDER BY RES_MITJANA DESC ";
 
+            }else{
+                query = "SELECT * FROM restaurants res JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI WHERE lower(res.RES_NOM) LIKE '%\" + consulta.toLowerCase() + \"%'\"";
+
+            }
+            ResultSetMapper<Restaurant> a = new ResultSetMapper<>();
+//            Object o = searchDB(query,a.mapRersultSetToObject())
+             a.mapRersultSetToObject(rs,Restaurant.class);
+
+
+            Class.forName(DRIVER);
+            Connection con = DriverManager.getConnection(THIN_URL, USER, PASSWORD);
 
             Statement stmt = con.createStatement();
-
             //Si el paràmetre consulta de la ArrayList MostrarRes ens dona null, executarà la consulta sql establerta. Per poder fer una cerca al formulari, transformam els valors en minúscula
             ResultSet rs;
             if (consulta == null) {
                 rs = stmt.executeQuery("SELECT * FROM restaurants res JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI AND ROWNUM <=5 ORDER BY RES_MITJANA DESC ");
             } else {
                 rs = stmt.executeQuery("SELECT * FROM restaurants res JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI WHERE lower(res.RES_NOM) LIKE '%" + consulta.toLowerCase() + "%'");
-
             }
-
             //Amb aquest loop mostrarem tots els paràmetres de les taules fins que no n'hi hagi
             while (rs.next()) {
                 Restaurant res = new Restaurant();
@@ -72,19 +104,14 @@ public class LlegirBD {
         //Cream l'arraylist d'opinions
         ArrayList<Opinions> opi = new ArrayList<Opinions>();
 
-
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection con = DriverManager.getConnection(
                     "jdbc:oracle:thin:@35.205.41.45:1521:XE", "usuari", "usuari");
 
-
             Statement stmt = con.createStatement();
-
             ResultSet rs;
-
             //Nova cosulta a la BD per agafar les opinions i com que hi ha camps null, feim una LEFT JOIN
-
             rs = stmt.executeQuery("SELECT * FROM restaurants res " +
                     "JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI " +
                     "LEFT JOIN opinions opi ON opi.OPI_RES_CODI = res.RES_CODI WHERE RES_CODI = " + id);

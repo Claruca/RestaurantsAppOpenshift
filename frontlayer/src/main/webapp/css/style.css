@@ -1,13 +1,6 @@
 
 /* Canvis en el bootstrap per defecte, modificant colors, fonts i tamany de fonts*/
 
-.opis {
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 25px;
-    margin: 25px;
-}
-
 .row {
     margin: 20px;
 }
@@ -36,7 +29,7 @@ img {
 }
 
 body{
-  color: #1d1f1b;
+    color: #1d1f1b;
 
 }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
@@ -62,5 +55,5 @@ h4{
 
 .pagination {
     margin-left: auto;
-    ;
+;
 }

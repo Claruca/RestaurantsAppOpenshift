@@ -22,8 +22,7 @@ Si está en el head, no cargará-->
         $.get("/restaurants", function (data) {
             console.log(data);
             var contentHtml = "<h2>Restaurantes</h2>";
-            $.each(data, function (index, value)
-            {
+            $.each(data, function (index, value) {
                 var cell = "<div>Name: " + value.nom + "</div>";
                 contentHtml += cell;
             });

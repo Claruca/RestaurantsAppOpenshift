@@ -2,17 +2,20 @@ package com.iesemilidarder.RestaurantsApp.web;
 
 import com.iesemilidarder.RestaurantsApp.core.Usuaris;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.security.MessageDigest;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.lang.String;
+
 
 public class LoginServlet extends HttpServlet {
 
@@ -35,76 +38,63 @@ public class LoginServlet extends HttpServlet {
     }
 
 
-    private boolean usuari_valid(String usuari, String password) {
-
-        boolean resultat = false;
+    private Usuaris usuari_valid(String usuari, String password) throws Exception {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection con = DriverManager.getConnection(
                     "jdbc:oracle:thin:@35.205.41.45:1521:XE", "usuari", "usuari");
 
+
             Statement stmt = con.createStatement();
             ResultSet rs;
-            Usuaris usu = new Usuaris();
-            rs = stmt.executeQuery("SELECT * FROM USUARIS WHERE USU_NOM ='" + usuari + "'");
-            if (rs.next()) {
 
+
+            rs = stmt.executeQuery("SELECT * FROM USUARIS WHERE USU_CODI ='" + usuari + "'");
+
+            if (rs.next()) {
+                Usuaris usu = new Usuaris();
+                usu.setCodi(rs.getString("USU_CODI"));
                 usu.setNom(rs.getString("USU_NOM"));
                 usu.setPassword(rs.getString("USU_PASSWORD"));
-                usu.setCodi(rs.getString("USU_CODI"));
+                usu.setEmail(rs.getString("USU_ADRECA_ELECTRONICA"));
 
-                String usuloc = usu.getNom();
+//              String usuloc = usu.getNom();
                 String usupass = usu.getPassword();
+
                 stmt.close(); //tancam connexions
                 con.close();
 
-                if (usuari.equals(usuloc)&& usupass.equals(sha256(password))) {
-                    resultat = true;
+                if (usupass.equals(sha256(password))) {
+                    return usu;
+
                 } else {
-                    System.out.println("Usuari no existeix");
+                    throw new Exception("password ko");
                 }
+            } else {
+                throw new Exception("No trobat");
             }
+
         } catch (Exception e) {
-            System.out.println((e.toString()));
+            throw e;
         }
-        return resultat;
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String nom = request.getParameter("usuari");
+        String name = request.getParameter("usuari");
         String pass = request.getParameter("psw");
-        HttpSession session = request.getSession();
-        session.setAttribute("usuari", "");
 
-        if (usuari_valid(nom, pass)) {
-            System.out.println("Correcte");
+        try {
+            Usuaris user = usuari_valid(name, pass);
 
-        } else {
-            System.out.println("Error");
+            if (user != null) {
+                request.getSession().setAttribute("usuari", user);
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }
+        } catch (Exception e) {
+            request.setAttribute("error", e.getMessage());
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
-
-
-       /* String pass = request.getParameter("psw");
-        response.setContentType("text/html");
-
-        PrintWriter out = response.getWriter();
-        RequestDispatcher rd = null;
-        request.setAttribute(nom, "usuari");
-
-        if (nom.equals("usuari") && pass.equals(sha256("psw"))) {
-            rd = request.getRequestDispatcher("/index.jsp");
-            rd.forward(request, response);
-        } else {
-            out.println("<b>Invalid Login Info.</b><br>");
-            rd = request.getRequestDispatcher("/loginPage.html");
-            rd.include(request, response);
-        }
-        out.close();
-*/
-
     }
 
-
 }
-

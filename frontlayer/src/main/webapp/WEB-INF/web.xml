@@ -7,11 +7,11 @@
     <display-name>Restaurants web application</display-name>
     <description>Web application that Restaurants web application</description>
     <welcome-file-list>
-        <welcome-file>/index.jsp</welcome-file>
+        <welcome-file>/loginPage.html</welcome-file>
     </welcome-file-list>
     <servlet>
         <servlet-name>showRestaurantServlet</servlet-name>
-        <servlet-class>com.iesemilidarder.RestaurantsApp.web.showRestaurantServlet</servlet-class>
+        <servlet-class>com.iesemilidarder.RestaurantsApp.web.ShowRestaurantServlet</servlet-class>
     </servlet>
     <!--Mapping de servlet y de jsp-->
     <servlet-mapping>
@@ -35,6 +35,15 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/LoginServlet</url-pattern>
+        <url-pattern>/loginservlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>com.iesemilidarder.RestaurantsApp.web.Logout</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 </web-app>
