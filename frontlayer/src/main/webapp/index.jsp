@@ -1,14 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.iesemilidarder.RestaurantsApp.core.LlegirBD" %>
 <%@ page import="com.iesemilidarder.RestaurantsApp.core.Restaurant" %>
-<%@ page import="java.util.Iterator" %>
-<%@ page import="java.util.ArrayList" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%@ page import="com.iesemilidarder.RestaurantsApp.core.Usuaris" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.*" %>
 <%@include file="Header.jsp"%>
 
 <main class="fonsPrincipal" role="main">
@@ -29,7 +28,7 @@
         </div>
         <% //Codi java que ens treu els valors de la consulta amb un iterador de la arraylist
             LlegirBD llegirBd = new LlegirBD();
-            ArrayList ar = llegirBd.MostrarRes(request.getParameter("consulta"));
+            java.util.List<Restaurant> ar = llegirBd.MostrarRes(request.getParameter("consulta"));
             Iterator itr = ar.iterator();
             while (itr.hasNext()) {
                 Restaurant res = (Restaurant) itr.next();

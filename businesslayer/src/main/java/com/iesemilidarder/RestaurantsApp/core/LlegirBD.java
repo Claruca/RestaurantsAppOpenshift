@@ -35,66 +35,43 @@ public class LlegirBD {
         }
     }
 
-    public ArrayList MostrarRes(String consulta) {
-        //Creació de la array list
-        ArrayList ar = new ArrayList();
+    public List<Restaurant> MostrarRes(String consulta) {
 
-        //Intentam la connexió i sinó gestionam els errors
+        //VERSION GENERICS
+        List<Restaurant> ar = new ArrayList<>();
         try {
             String query = StringUtils.EMPTY;
-            if(StringUtils.isEmpty(consulta)){
+            if (StringUtils.isEmpty(consulta)) {
                 query = "SELECT * FROM restaurants res JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI AND ROWNUM <=5 ORDER BY RES_MITJANA DESC ";
 
-            }else{
-                query = "SELECT * FROM restaurants res JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI WHERE lower(res.RES_NOM) LIKE '%\" + consulta.toLowerCase() + \"%'\"";
+            } else {
+                query = "SELECT * FROM restaurants res JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI WHERE lower(res.RES_NOM) LIKE '%\" + consulta.toLowerCase() + \"%'";
 
             }
-            ResultSetMapper<Restaurant> a = new ResultSetMapper<>();
-//            Object o = searchDB(query,a.mapRersultSetToObject())
-             a.mapRersultSetToObject(rs,Restaurant.class);
-
-
             Class.forName(DRIVER);
             Connection con = DriverManager.getConnection(THIN_URL, USER, PASSWORD);
-
             Statement stmt = con.createStatement();
-            //Si el paràmetre consulta de la ArrayList MostrarRes ens dona null, executarà la consulta sql establerta. Per poder fer una cerca al formulari, transformam els valors en minúscula
-            ResultSet rs;
-            if (consulta == null) {
-                rs = stmt.executeQuery("SELECT * FROM restaurants res JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI AND ROWNUM <=5 ORDER BY RES_MITJANA DESC ");
-            } else {
-                rs = stmt.executeQuery("SELECT * FROM restaurants res JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI WHERE lower(res.RES_NOM) LIKE '%" + consulta.toLowerCase() + "%'");
-            }
-            //Amb aquest loop mostrarem tots els paràmetres de les taules fins que no n'hi hagi
-            while (rs.next()) {
-                Restaurant res = new Restaurant();
-                res.setCodi(rs.getString("RES_CODI"));
-                res.setNom(rs.getString("RES_NOM"));
-                res.setAdressa(rs.getString("RES_ADRECA"));
-                res.setLlocweb(rs.getString("RES_WEB"));
-                res.setTelefon(rs.getString("RES_TELEFON"));
-                res.setTipus(rs.getString("TRS_DESCRIPCIO"));
-                res.setImatge(rs.getString("RES_URL_IMG"));
-                res.setMitjana(rs.getString("RES_MITJANA"));
+            ResultSet rs = stmt.executeQuery(query);
 
-
-                ar.add(res);
-            }
-
-
-            stmt.close(); //tancam connexions
+            ResultSetMapper<Restaurant> mapper = new ResultSetMapper<>();
+            ar = mapper.mapRersultSetToObject(rs, Restaurant.class);
+            stmt.close();
             con.close();
 
+//           VERSION FUNCTIONAL
 
-        } catch (
-                Exception e)
+          /*  ar = new ArrayList<>();
+            Function<ResultSet, Object> func = new Function<ResultSet, Object>() {
+                public Object apply(ResultSet rs) {
+                    return mapper.mapRersultSetToObject(rs, Restaurant.class);
+                }
+            };
+            ar = (ArrayList) searchDB(query, func);*/
 
-        {
+        } catch (Exception e) {
             System.out.println((e.toString()));
-
         }
         return ar;
-
     }
 
 //Un altre mètode per treure més informació de la BD a través d'un string anomenat id
@@ -105,16 +82,15 @@ public class LlegirBD {
         ArrayList<Opinions> opi = new ArrayList<Opinions>();
 
         try {
+            String query = "SELECT * FROM restaurants res \" +\n" +
+                    "                    \"JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI \" +\n" +
+                    "                    \"LEFT JOIN opinions opi ON opi.OPI_RES_CODI = res.RES_CODI WHERE RES_CODI = + id";
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection con = DriverManager.getConnection(
                     "jdbc:oracle:thin:@35.205.41.45:1521:XE", "usuari", "usuari");
 
             Statement stmt = con.createStatement();
-            ResultSet rs;
-            //Nova cosulta a la BD per agafar les opinions i com que hi ha camps null, feim una LEFT JOIN
-            rs = stmt.executeQuery("SELECT * FROM restaurants res " +
-                    "JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI " +
-                    "LEFT JOIN opinions opi ON opi.OPI_RES_CODI = res.RES_CODI WHERE RES_CODI = " + id);
+            ResultSet rs = stmt.executeQuery(query);
 
             while (rs.next()) {
                 //Amb aquest if només treim el restaurant la primera vegada
