@@ -85,15 +85,14 @@ public class LlegirBD {
             String query = "SELECT * FROM restaurants res \" +\n" +
                     "                    \"JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI \" +\n" +
                     "                    \"LEFT JOIN opinions opi ON opi.OPI_RES_CODI = res.RES_CODI WHERE RES_CODI = + id";
-            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Class.forName(DRIVER);
             Connection con = DriverManager.getConnection(
-                    "jdbc:oracle:thin:@35.205.41.45:1521:XE", "usuari", "usuari");
+                    THIN_URL, USER, PASSWORD);
 
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
 
             while (rs.next()) {
-                //Amb aquest if només treim el restaurant la primera vegada
                 if (res == null) {
                     res = new Restaurant();
                     res.setCodi(rs.getString("RES_CODI"));
@@ -108,7 +107,6 @@ public class LlegirBD {
                     res.setLongitud(rs.getString("RES_LONGITUD"));
 
                 }
-                //Dins el mateix restaurant agafam els camps de les opinions i els ficam dins les variables
                 Opinions opinio = new Opinions();
                 opinio.setOpicodi(rs.getString("OPI_CODI"));
                 opinio.setObservacio(rs.getString("OPI_OBSERVACIO"));
@@ -136,6 +134,34 @@ public class LlegirBD {
         }
         return res;
 
+    }
+
+    public static void add_comment(String usuari, String comment, String score, String id) {
+
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection con = DriverManager.getConnection(
+                    "jdbc:oracle:thin:@35.205.41.45:1521:XE", "usuari", "usuari");
+
+            Statement stmt = con.createStatement();
+            //            String query = "INSERT INTO OPINIONS(OPI_OBSERVACIO,OPI_PUNTUACIO) VALUES (" + comment + score + " )WHERE RES_CODI="+id;
+//
+
+
+//            String query = "INSERT INTO OPINIONS(OPI_RES_CODI,OPI_OBSERVACIO,OPI_PUNTUACIO,OPI_USU_CODI) VALUES (" + id + ',' + "''" + comment + "''" + ',' + "''" + score + "''" + ',' + "''" + usuari + "''" + " )WHERE RES_CODI=id;";
+//            PreparedStatement pstmt = con.prepareStatement(query);
+
+            stmt.executeUpdate("INSERT INTO OPINIONS(OPI_RES_CODI,OPI_OBSERVACIO,OPI_PUNTUACIO,OPI_USU_CODI) VALUES (" + id + ',' + "''" + comment + "''" + ',' + "''" + score + "''" + ',' + "''" + usuari + "''" + " )WHERE RES_CODI=id;");
+
+//            ResultSet statquery = null;
+//
+//            pstmt.setString(1, id);
+//            pstmt.executeUpdate(query);
+
+
+        } catch (Exception ex) {
+            System.out.println("error comentari");
+        }
     }
 
 

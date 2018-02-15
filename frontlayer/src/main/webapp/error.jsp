@@ -30,14 +30,15 @@
     </button>
 </nav>
 
+<%--La pàgina d'error és igual al formulari de l'inici--%>
 <%
     String error = (String) request.getAttribute("error");
-    out.println("Error de login" + "</br>");
+    out.println("Usuari i/o password incorrectes" + "</br>");
 %>
 <div class="form-group">
     <form action="loginservlet" method="post">
-        <input class="form-control"  type="text" placeholder="Usuari" name="usuari"/><br/><br/>
-        <input class="form-control"  type="password" placeholder="Password" name="psw"/><br/><br/>
+        <input class="form-control" type="text" placeholder="Usuari" name="usuari"/><br/><br/>
+        <input class="form-control" type="password" placeholder="Password" name="psw"/><br/><br/>
         <button type="submit" class="btn btn-success" value="login">Try Again</button>
     </form>
 </div>

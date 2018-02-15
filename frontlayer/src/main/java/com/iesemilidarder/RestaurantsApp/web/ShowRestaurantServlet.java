@@ -12,10 +12,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class ShowRestaurantServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.doGet(request, response);
-        //  String surname = request.getParameter("surname");
-    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         LlegirBD bd = new LlegirBD();
@@ -24,7 +20,6 @@ public class ShowRestaurantServlet extends HttpServlet {
         String id = request.getParameter("id");
         Restaurant res = bd.MostrarResInfo(id);
         request.setAttribute("res", res);
-        //Aquí enviam el servlet cap a un altre jsp
         request.getRequestDispatcher("MostrarRestaurants").forward(request, response);
     }
 }

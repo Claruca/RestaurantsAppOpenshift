@@ -1,14 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.iesemilidarder.RestaurantsApp.core.LlegirBD" %>
 <%@ page import="com.iesemilidarder.RestaurantsApp.core.Restaurant" %>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-<%@ page import="com.iesemilidarder.RestaurantsApp.core.Usuaris" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.*" %>
-<%@include file="Header.jsp"%>
+<%@include file="Header.jsp"%> <%--Include del header--%>
+
 
 <main class="fonsPrincipal" role="main">
     <!-- Principal jumbotron -->
@@ -20,7 +18,7 @@
         </div>
     </div>
 
-    <!-- Contanidor principal -->
+    <!-- Contenidor principal -->
     <div class="container">
         <!-- fila de columnes -->
         <div class="container">
@@ -28,7 +26,7 @@
         </div>
         <% //Codi java que ens treu els valors de la consulta amb un iterador de la arraylist
             LlegirBD llegirBd = new LlegirBD();
-            java.util.List<Restaurant> ar = llegirBd.MostrarRes(request.getParameter("consulta"));
+            List<?> ar = llegirBd.MostrarRes(request.getParameter("consulta"));
             Iterator itr = ar.iterator();
             while (itr.hasNext()) {
                 Restaurant res = (Restaurant) itr.next();
@@ -82,6 +80,7 @@
 <footer class="container">
     <p>&copy Clara Marti Alberti</p> <!--El copyright>
 </footer>
+
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

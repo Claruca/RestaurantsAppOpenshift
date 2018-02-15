@@ -46,4 +46,14 @@
         <servlet-name>Logout</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>CommentServlet</servlet-name>
+        <servlet-class>com.iesemilidarder.RestaurantsApp.web.CommentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CommentServlet</servlet-name>
+        <url-pattern>/commentservlet</url-pattern>
+    </servlet-mapping>
 </web-app>
