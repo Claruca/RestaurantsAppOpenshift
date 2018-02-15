@@ -39,7 +39,7 @@
     }
 %>
 <%
-    Restaurant resta = (Restaurant) request.getAttribute("res");
+
     if (session.getAttribute("usuari") != null) {
 
         out.println("<div class=\"form-group\">\n" +
@@ -47,7 +47,7 @@
                 "    <form action=\"commentservlet\" method=\"post\">\n" +
                 "        <input class=\"form-control\" type=\"text\" placeholder=\"Comentari\" name=\"comment\"/><br/>\n" +
                 "        <input class=\"form-control\" type=\"text\" placeholder=\"puntuacio\" name=\"score\"/><br/><br/>\n" +
-//                "        <input type=\"hidden\" name=\"id\" value="+resta.getCodi()+"><br/>" +
+                "        <input type=\"hidden\" name=\"id\" value="+res.getCodi()+"><br/>" +
                 "        <button type=\"submit\" class=\"btn btn-success\" value=\"Comment\">Afegeix un comentari</button>\n" +
                 "    </form>\n" +
                 "</div>");

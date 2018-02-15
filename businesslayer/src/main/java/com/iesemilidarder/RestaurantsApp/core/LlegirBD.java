@@ -82,12 +82,9 @@ public class LlegirBD {
         ArrayList<Opinions> opi = new ArrayList<Opinions>();
 
         try {
-            String query = "SELECT * FROM restaurants res \" +\n" +
-                    "                    \"JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI \" +\n" +
-                    "                    \"LEFT JOIN opinions opi ON opi.OPI_RES_CODI = res.RES_CODI WHERE RES_CODI = + id";
+            String query = "SELECT * FROM restaurants res JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI LEFT JOIN opinions opi ON opi.OPI_RES_CODI = res.RES_CODI WHERE RES_CODI ='" + id + "'";
             Class.forName(DRIVER);
-            Connection con = DriverManager.getConnection(
-                    THIN_URL, USER, PASSWORD);
+            Connection con = DriverManager.getConnection(THIN_URL, USER, PASSWORD);
 
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
@@ -148,10 +145,10 @@ public class LlegirBD {
 //
 
 
-//            String query = "INSERT INTO OPINIONS(OPI_RES_CODI,OPI_OBSERVACIO,OPI_PUNTUACIO,OPI_USU_CODI) VALUES (" + id + ',' + "''" + comment + "''" + ',' + "''" + score + "''" + ',' + "''" + usuari + "''" + " )WHERE RES_CODI=id;";
+            String query = "INSERT INTO OPINIONS(OPI_RES_CODI,OPI_OBSERVACIO,OPI_PUNTUACIO,OPI_USU_CODI) VALUES ('" + id + "','" + comment + "'," + score + ",'" + usuari + "' )WHERE RES_CODI='" + id + "'";
 //            PreparedStatement pstmt = con.prepareStatement(query);
 
-            stmt.executeUpdate("INSERT INTO OPINIONS(OPI_RES_CODI,OPI_OBSERVACIO,OPI_PUNTUACIO,OPI_USU_CODI) VALUES (" + id + ',' + "''" + comment + "''" + ',' + "''" + score + "''" + ',' + "''" + usuari + "''" + " )WHERE RES_CODI=id;");
+            stmt.executeUpdate(query);
 
 //            ResultSet statquery = null;
 //
