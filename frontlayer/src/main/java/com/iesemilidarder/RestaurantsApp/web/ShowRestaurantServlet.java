@@ -11,33 +11,15 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-public class showRestaurantServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.doGet(request, response);
-        //  String surname = request.getParameter("surname");
-    }
+public class ShowRestaurantServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         LlegirBD bd = new LlegirBD();
+        //Nova instància de la classe LlegirBD per poder agafar el paràmetre de la sessió i definir l'atribut
 
         String id = request.getParameter("id");
         Restaurant res = bd.MostrarResInfo(id);
         request.setAttribute("res", res);
         request.getRequestDispatcher("MostrarRestaurants").forward(request, response);
-
-        //  PrintWriter out = response.getWriter();
-        //out.println("<h1>Test Servleeeeeeet</h1>");
-
-
     }
 }
-
-/*Request.getparameter("id)
-* Restaurant rest=llegirDb.Mostrarres(id)
-* ArrayList opinions=llegirdb.mostraropi(id)
-* request.setatribute("restaurant", rest);
-* request.setAtribute ("opi", opinions);
-* request.getDispacher("OTRO.jsp").forward(request,response)
-*
-*
-*/

@@ -1,58 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.iesemilidarder.RestaurantsApp.core.LlegirBD" %>
 <%@ page import="com.iesemilidarder.RestaurantsApp.core.Restaurant" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.Iterator" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.*" %>
+<%@include file="Header.jsp"%> <%--Include del header--%>
 
-<!DOCTYPE html>
-<html lang="ca">
-<head>
-    <title>Restaurants</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Bootstrap CSS -->
-    <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.css" media="screen">
-    <link rel="stylesheet" href="https://bootswatch.com/_assets/css/custom.min.css">
-
-    <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet">
-</head>
-<body>
-
-<!-- Barra de navegació -->
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="index.jsp">Restaurants</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.jsp">Inici <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="servlet">Enllaç 1</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="servlet">Enllaç 2</a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <!-- Aquí tenim el formulari de cerca amb la variable consulta del LlegirBD-->
-            <input class="form-control mr-sm-2" name="consulta" type="text" placeholder="Italià, Japo,..."
-                   aria-label="Cercar">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Cercar</button>
-        </form>
-    </div>
-</nav>
 
 <main class="fonsPrincipal" role="main">
     <!-- Principal jumbotron -->
@@ -64,7 +18,7 @@
         </div>
     </div>
 
-    <!-- Contanidor principal -->
+    <!-- Contenidor principal -->
     <div class="container">
         <!-- fila de columnes -->
         <div class="container">
@@ -72,7 +26,7 @@
         </div>
         <% //Codi java que ens treu els valors de la consulta amb un iterador de la arraylist
             LlegirBD llegirBd = new LlegirBD();
-            ArrayList ar = (ArrayList) llegirBd.getRestaurants(request.getParameter("consulta"));
+            List<?> ar = llegirBd.MostrarRes(request.getParameter("consulta"));
             Iterator itr = ar.iterator();
             while (itr.hasNext()) {
                 Restaurant res = (Restaurant) itr.next();
@@ -84,10 +38,9 @@
                         "<p>" + res.getLlocweb() + "</p>" +
                         "<p>" + res.getTelefon() + "</p>" +
                         "<p>" + res.getTipus() + "</p>" +
-                        "<p>" + res.getMitjana() + "</p>" +
+                        "<h5>" + "Nota: " + "</h5>" + "<p>" + res.getMitjana() + "</p>" +
                         "<p>" + "<a class=\"btn btn-secondary\" href=\"/servlet?id=" + res.getCodi() + "\" role=\"button\">" + "Més informació &raquo;</a>" + "</p>" +
-                                                            /*Aqui hi ha d'haver un /showrest?id=res_codi*/
-
+                        //El botó anirà a la URL i mirarà que el paràmetre id sigui igual al codi del restaurant
                         "</div >" +
                         "</div >"
                 );
@@ -97,26 +50,26 @@
 
 </main>
 
-<!--Aquí he afegit una barra de sel·lecció de pàgines que ens duen a la mateixa -->
+<!--Aquí he afegit una barra de sel·lecció de pàgines que ens duen cada un a un restaurant diferent -->
 <div class="pagination">
     <ul class="pagination pagination-lg">
         <li class="page-item disabled">
             <a class="page-link" href="#">&laquo;</a>
         </li>
         <li class="page-item active">
-            <a class="page-link" href="#">1</a>
+            <a class="page-link" href="/servlet?id=1">1</a>
         </li>
         <li class="page-item">
-            <a class="page-link" href="#">2</a>
+            <a class="page-link" href="/servlet?id=2">2</a>
         </li>
         <li class="page-item">
-            <a class="page-link" href="#">3</a>
+            <a class="page-link" href="/servlet?id=3">3</a>
         </li>
         <li class="page-item">
-            <a class="page-link" href="#">4</a>
+            <a class="page-link" href="/servlet?id=4">4</a>
         </li>
         <li class="page-item">
-            <a class="page-link" href="#">5</a>
+            <a class="page-link" href="/servlet?id=5">5</a>
         </li>
         <li class="page-item">
             <a class="page-link" href="#">&raquo;</a>

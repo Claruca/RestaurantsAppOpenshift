@@ -1,5 +1,7 @@
 package com.iesemilidarder.RestaurantsApp.core;
 
+//Nova classe opinions
+
 public class Opinions {
     private String opicodi;
     private String observacio;

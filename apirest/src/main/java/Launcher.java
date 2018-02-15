@@ -36,7 +36,6 @@ public class Launcher {
     }
 
 
-
     private static boolean shouldReturnHtml(Request request) {
         String accept = request.headers("Accept");
         return StringUtils.contains(accept, "text/html");
@@ -74,6 +73,9 @@ public class Launcher {
             staticFiles.location("/public");
         }*/
         //hello world for dummies, via lambdas
+
+        get("/prova", (req, res) -> "ExampleStaticFile.html");
+
         get("/hello", (req, res) -> "Hello World");
         //json response way1: via spark renderer
         /*get("/json", "application/json", (request, response) -> {
@@ -99,23 +101,27 @@ public class Launcher {
                 return mapper.writeValueAsString(lUser);
             }
         });
+        //En el Path /restaurants creamos una instancia de LlegirBD llamada dbHelper y utlizamos el método MostrarRes.
         get("/restaurants", (request, response) -> {
             LlegirBD dbHelper = new LlegirBD();
-            List<Restaurant> rtn = dbHelper.getRestaurants(StringUtils.EMPTY);
+            List<Restaurant> rest = dbHelper.MostrarRes(StringUtils.EMPTY);
+            //Creamos un HashMap para obtener los datos de la BD y los envía a un freemarker
             if (shouldReturnHtml(request)) {
                 Map<String, Object> model = new HashMap<>();
-                model.put("posts", rtn);
-                model.put("title", "Users");
-                model.put("subtitle", "List of all users");
+                model.put("posts", rest);
+                model.put("title", "Restaurants");
+                model.put("subtitle", "Llista de restaurants");
                 return getFreemarkerEngine().render(
-                        new ModelAndView(model, "basicView.ftl")
+                        new ModelAndView(model, "basicViewRest.ftl")
                 );
             } else {
                 CorsFilter.apply();
                 ObjectMapper mapper = new ObjectMapper();
                 setResponseHeader(response, false);
-                return mapper.writeValueAsString(rtn);
+                return mapper.writeValueAsString(rest);
             }
+
+
         });
     }
 
