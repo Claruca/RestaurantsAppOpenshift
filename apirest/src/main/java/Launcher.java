@@ -2,7 +2,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.iesemilidarder.RestaurantsApp.core.DBObject;
 import com.iesemilidarder.RestaurantsApp.core.LlegirBD;
 import com.iesemilidarder.RestaurantsApp.core.Restaurant;
-import com.iesemilidarder.RestaurantsApp.core.User;
+//import com.iesemilidarder.RestaurantsApp.core.User;
 import freemarker.template.Configuration;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -20,19 +20,19 @@ import java.util.Map;
 import static spark.Spark.*;
 
 public class Launcher {
-    private static List<User> lUser = new ArrayList<User>();
+//    private static List<User> lUser = new ArrayList<User>();
     private static final Logger log = LoggerFactory.getLogger(Launcher.class);
 
     private static void init() {
-        for (int i = 0; i < 10; i++) {
-            User user = new User();
-            user.setId(i);
-            user.setName("a" + i);
-            user.save();
-            lUser.add(user);
-        }
-        DBObject dbo = lUser.get(0);
-        log.info("Loading finished");
+//        for (int i = 0; i < 10; i++) {
+//            User user = new User();
+//            user.setId(i);
+//            user.setName("a" + i);
+//            user.save();
+//            lUser.add(user);
+//        }
+//        DBObject dbo = lUser.get(0);
+//        log.info("Loading finished");
     }
 
 
@@ -74,8 +74,8 @@ public class Launcher {
         }*/
         //hello world for dummies, via lambdas
 
-        get("/prova", (req, res) -> "ExampleStaticFile.html");
-
+//        get("/prova", (req, res) -> "ExampleStaticFile.html");
+//
         get("/hello", (req, res) -> "Hello World");
         //json response way1: via spark renderer
         /*get("/json", "application/json", (request, response) -> {
@@ -85,22 +85,22 @@ public class Launcher {
         }, new JsonTransformer());*/
         //biconditional response way2: via jackson
 
-        get("/users", (request, response) -> {
-            if (shouldReturnHtml(request)) {
-                Map<String, Object> model = new HashMap<>();
-                model.put("posts", lUser);
-                model.put("title", "Users");
-                model.put("subtitle", "List of all users");
-                return getFreemarkerEngine().render(
-                        new ModelAndView(model, "basicView.ftl")
-                );
-            } else {
-                CorsFilter.apply();
-                ObjectMapper mapper = new ObjectMapper();
-                setResponseHeader(response, false);
-                return mapper.writeValueAsString(lUser);
-            }
-        });
+//        get("/users", (request, response) -> {
+//            if (shouldReturnHtml(request)) {
+//                Map<String, Object> model = new HashMap<>();
+//                model.put("posts", lUser);
+//                model.put("title", "Users");
+//                model.put("subtitle", "List of all users");
+//                return getFreemarkerEngine().render(
+//                        new ModelAndView(model, "basicView.ftl")
+//                );
+//            } else {
+//                CorsFilter.apply();
+//                ObjectMapper mapper = new ObjectMapper();
+//                setResponseHeader(response, false);
+//                return mapper.writeValueAsString(lUser);
+//            }
+//        });
         //En el Path /restaurants creamos una instancia de LlegirBD llamada dbHelper y utlizamos el método MostrarRes.
         get("/restaurants", (request, response) -> {
             LlegirBD dbHelper = new LlegirBD();
