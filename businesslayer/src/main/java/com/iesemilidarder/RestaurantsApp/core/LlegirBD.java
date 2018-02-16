@@ -35,17 +35,17 @@ public class LlegirBD {
         }
     }
 
-    public List<Restaurant> MostrarRes(String consulta) {
+    public List<Restaurant> mostrarRes(String consulta) {
 
         //VERSION GENERICS
         List<Restaurant> ar = new ArrayList<>();
         try {
-            String query = StringUtils.EMPTY;
+            String query;
             if (StringUtils.isEmpty(consulta)) {
                 query = "SELECT * FROM restaurants res JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI AND ROWNUM <=5 ORDER BY RES_MITJANA DESC ";
 
             } else {
-                query = "SELECT * FROM restaurants res JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI WHERE lower(res.RES_NOM) LIKE '%\" + consulta.toLowerCase() + \"%'";
+                query = "SELECT * FROM restaurants res JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI WHERE lower(res.RES_NOM) LIKE '%" + consulta.toLowerCase() + "%'";
 
             }
             Class.forName(DRIVER);
@@ -53,8 +53,23 @@ public class LlegirBD {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
 
-            ResultSetMapper<Restaurant> mapper = new ResultSetMapper<>();
-            ar = mapper.mapRersultSetToObject(rs, Restaurant.class);
+            while (rs.next()) {
+                Restaurant res = new Restaurant();
+                res.setCodi(rs.getString("RES_CODI"));
+                res.setNom(rs.getString("RES_NOM"));
+                res.setAdressa(rs.getString("RES_ADRECA"));
+                res.setLlocweb(rs.getString("RES_WEB"));
+                res.setTelefon(rs.getString("RES_TELEFON"));
+                res.setTipus(rs.getString("TRS_DESCRIPCIO"));
+                res.setImatge(rs.getString("RES_URL_IMG"));
+                res.setMitjana(rs.getString("RES_MITJANA"));
+
+
+                ar.add(res);
+            }
+
+//            ResultSetMapper<Restaurant> mapper = new ResultSetMapper<>();
+//            ar = mapper.mapRersultSetToObject(rs, Restaurant.class);
             stmt.close();
             con.close();
 
@@ -76,7 +91,7 @@ public class LlegirBD {
 
 //Un altre mètode per treure més informació de la BD a través d'un string anomenat id
 
-    public Restaurant MostrarResInfo(String id) {
+    public Restaurant mostrarResInfo(String id) {
         Restaurant res = null;
         //Cream l'arraylist d'opinions
         ArrayList<Opinions> opi = new ArrayList<Opinions>();

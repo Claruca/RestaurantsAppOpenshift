@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 
 public class ShowRestaurantServlet extends HttpServlet {
 
@@ -18,7 +16,7 @@ public class ShowRestaurantServlet extends HttpServlet {
         //Nova instància de la classe LlegirBD per poder agafar el paràmetre de la sessió i definir l'atribut
 
         String id = request.getParameter("id");
-        Restaurant res = bd.MostrarResInfo(id);
+        Restaurant res = bd.mostrarResInfo(id);
         request.setAttribute("res", res);
         request.getRequestDispatcher("MostrarRestaurants").forward(request, response);
     }

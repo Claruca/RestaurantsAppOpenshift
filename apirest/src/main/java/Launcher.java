@@ -1,5 +1,4 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.iesemilidarder.RestaurantsApp.core.DBObject;
 import com.iesemilidarder.RestaurantsApp.core.LlegirBD;
 import com.iesemilidarder.RestaurantsApp.core.Restaurant;
 //import com.iesemilidarder.RestaurantsApp.core.User;
@@ -12,7 +11,6 @@ import spark.Request;
 import spark.Response;
 import spark.template.freemarker.FreeMarkerEngine;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -101,10 +99,10 @@ public class Launcher {
 //                return mapper.writeValueAsString(lUser);
 //            }
 //        });
-        //En el Path /restaurants creamos una instancia de LlegirBD llamada dbHelper y utlizamos el método MostrarRes.
+        //En el Path /restaurants creamos una instancia de LlegirBD llamada dbHelper y utlizamos el método mostrarRes.
         get("/restaurants", (request, response) -> {
             LlegirBD dbHelper = new LlegirBD();
-            List<Restaurant> rest = dbHelper.MostrarRes(StringUtils.EMPTY);
+            List<Restaurant> rest = dbHelper.mostrarRes(StringUtils.EMPTY);
             //Creamos un HashMap para obtener los datos de la BD y los envía a un freemarker
             if (shouldReturnHtml(request)) {
                 Map<String, Object> model = new HashMap<>();

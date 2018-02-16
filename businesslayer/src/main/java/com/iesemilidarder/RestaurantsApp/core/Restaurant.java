@@ -132,5 +132,22 @@ public class Restaurant {
         Longitud = longitud;
     }
 
+//    public Restaurant(String nom, String adressa, String llocweb, String telefon, String tipus, String imatge, String mitjana) {
+//        this.nom = nom;
+//        this.adressa = adressa;
+//        this.llocweb = llocweb;
+//        this.telefon = telefon;
+//        this.tipus = tipus;
+//        this.imatge = imatge;
+//        Mitjana = mitjana;
+//    }
+
+    public Restaurant(String nom, String adressa) {
+        this.nom = nom;
+        this.adressa = adressa;
+    }
+
+    public Restaurant() {
+    }
 }
 

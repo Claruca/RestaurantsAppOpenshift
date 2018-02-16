@@ -3,8 +3,8 @@
 <%@ page import="static java.awt.SystemColor.text" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="Header.jsp" %>
-<%
 
+<%
     Restaurant res = (Restaurant) request.getAttribute("res");
 
     if (res != null) {

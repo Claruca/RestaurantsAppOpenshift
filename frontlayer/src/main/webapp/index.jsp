@@ -26,24 +26,24 @@
         </div>
         <% //Codi java que ens treu els valors de la consulta amb un iterador de la arraylist
             LlegirBD llegirBd = new LlegirBD();
-            List<?> ar = llegirBd.MostrarRes(request.getParameter("consulta"));
-            Iterator itr = ar.iterator();
-            while (itr.hasNext()) {
-                Restaurant res = (Restaurant) itr.next();
+            List<Restaurant> ar = llegirBd.mostrarRes(request.getParameter("consulta"));
+            for(Restaurant res: ar){
                 out.println("<div class=\"row\">" +
-                        " <div class =\"col-md-4\">" + "<img class=\"img-fluid rounded\" src=\" " + res.getImatge() + "\">" + "</div>" +
-                        "<div class=\"col-md-8\">" +
-                        "<h3>" + res.getNom() + "</h3>" +
-                        "<p>" + res.getAdressa() + "</p>" +
-                        "<p>" + res.getLlocweb() + "</p>" +
-                        "<p>" + res.getTelefon() + "</p>" +
-                        "<p>" + res.getTipus() + "</p>" +
-                        "<h5>" + "Nota: " + "</h5>" + "<p>" + res.getMitjana() + "</p>" +
-                        "<p>" + "<a class=\"btn btn-secondary\" href=\"/servlet?id=" + res.getCodi() + "\" role=\"button\">" + "Més informació &raquo;</a>" + "</p>" +
-                        //El botó anirà a la URL i mirarà que el paràmetre id sigui igual al codi del restaurant
-                        "</div >" +
-                        "</div >"
-                );
+                    " <div class =\"col-md-4\">" + "<img class=\"img-fluid rounded\" src=\" " + res.getImatge() + "\">" + "</div>" +
+                    "<div class=\"col-md-8\">" +
+                    "<h3>" + res.getNom() + "</h3>" +
+                    "<p>" + res.getAdressa() + "</p>" +
+                    "<p>" + res.getLlocweb() + "</p>" +
+                    "<p>" + res.getTelefon() + "</p>" +
+                    "<p>" + res.getTipus() + "</p>" +
+                    "<h5>" + "Nota: " + "</h5>" + "<p>" + res.getMitjana() + "</p>" +
+                    "<p>" + "<a class=\"btn btn-secondary\" href=\"/servlet?id=" + res.getCodi() + "\" role=\"button\">" + "Més informació &raquo;</a>" + "</p>" +
+                    //El botó anirà a la URL i mirarà que el paràmetre id sigui igual al codi del restaurant
+                    "</div >" +
+                    "</div >"
+            );
+
+
             } %>
 
     </div> <!-- /contenidor principal -->
