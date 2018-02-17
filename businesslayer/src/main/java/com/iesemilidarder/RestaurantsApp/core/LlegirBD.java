@@ -1,6 +1,5 @@
 
 package com.iesemilidarder.RestaurantsApp.core;
-
 import org.apache.commons.lang3.StringUtils;
 
 import java.sql.Connection;
