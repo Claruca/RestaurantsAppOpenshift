@@ -1,3 +1,4 @@
+/*
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.iesemilidarder.RestaurantsApp.core.LlegirBD;
 import com.iesemilidarder.RestaurantsApp.core.Restaurant;
@@ -62,25 +63,29 @@ public class Launcher {
         staticFiles.location("/public");
         init();
         port(8090);
-        /*
+        */
+/*
         if (localhost) {
             String projectDir = System.getProperty("user.dir");
             String staticDir = "/src/main/resources/public";
             staticFiles.externalLocation(projectDir + staticDir);
         } else {
             staticFiles.location("/public");
-        }*/
+        }*//*
+
         //hello world for dummies, via lambdas
 
 //        get("/prova", (req, res) -> "ExampleStaticFile.html");
 //
         get("/hello", (req, res) -> "Hello World");
         //json response way1: via spark renderer
-        /*get("/json", "application/json", (request, response) -> {
+        */
+/*get("/json", "application/json", (request, response) -> {
             User user = new User();
             user.setName("Hello world!");
             return user;
-        }, new JsonTransformer());*/
+        }, new JsonTransformer());*//*
+
         //biconditional response way2: via jackson
 
 //        get("/users", (request, response) -> {
@@ -123,4 +128,4 @@ public class Launcher {
         });
     }
 
-}
+}*/

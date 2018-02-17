@@ -1,10 +1,11 @@
+<#--
 <!doctype html>
 <html lang="en">
 <head>
-    <!-- Required meta tags -->
+    <!-- Required meta tags &ndash;&gt;
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS &ndash;&gt;
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
           integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <title>${title!""}</title>
@@ -40,15 +41,15 @@
         </div>
     </div>
 
-<#--La variable posts a la que hacemos referencia en el Launcher tendrá la info de la BD-->
+&lt;#&ndash;La variable posts a la que hacemos referencia en el Launcher tendrá la info de la BD&ndash;&gt;
 <#if posts??>
     <div class="row center mt-2">
-        <#list posts as item> <#-- Llamamos a los posts item y los listamos-->
+        <#list posts as item> &lt;#&ndash; Llamamos a los posts item y los listamos&ndash;&gt;
             <div class="col-md-3">
                 <div class="media mt-5 ml-5">
                     <img class="align-self-start mr-3 rounded-circle"
                          src="${item.imatge!""}"
-                    <#--src="http://lorempixel.com/80/80"-->
+                    &lt;#&ndash;src="http://lorempixel.com/80/80"&ndash;&gt;
                          alt="Random Image" width="80" height="80">
                     <div class="media-body">
                         <h5 class="mt-0">Nom ${item.nom!""}</h5>
@@ -64,8 +65,8 @@
     </div>
 </#if>
 </main>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!-- Optional JavaScript &ndash;&gt;
+<!-- jQuery first, then Popper.js, then Bootstrap JS &ndash;&gt;
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -76,4 +77,4 @@
         integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
         crossorigin="anonymous"></script>
 </body>
-</html>
+</html>-->
