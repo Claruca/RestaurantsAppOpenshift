@@ -23,12 +23,12 @@
         <module>springrestapi</module>
     </modules>
 
-    <profiles>
+    <!--<profiles>
         <profile>
-            <!-- When built in OpenShift the openshift profile will be used when invoking  mvn. -->
-            <!-- Use this profile for any OpenShift specific customization your app  will need. -->
-            <!-- By default that is to put the resulting archive into the deployments folder. -->
-            <!-- http://maven.apache.org/guides/mini/guide-building-for-different environments.html -->
+            &lt;!&ndash; When built in OpenShift the openshift profile will be used when invoking  mvn. &ndash;&gt;
+            &lt;!&ndash; Use this profile for any OpenShift specific customization your app  will need. &ndash;&gt;
+            &lt;!&ndash; By default that is to put the resulting archive into the deployments folder. &ndash;&gt;
+            &lt;!&ndash; http://maven.apache.org/guides/mini/guide-building-for-different environments.html &ndash;&gt;
             <id>openshift</id>
             <build>
                 <plugins>
@@ -50,7 +50,7 @@
                             <artifactId>ojdbc8</artifactId>
                             <version>12.2.0.1</version>
                             <packaging>jar</packaging>
-                            <file>lib/ojdbc8.jar</file>
+                            <file>businesslayer/lib/ojdbc8.jar</file>
                             <generatePom>true</generatePom>
                         </configuration>
                     </plugin>
@@ -66,7 +66,8 @@
                 </plugins>
             </build>
         </profile>
-    </profiles>
+    </profiles>-->
+
     <repositories>
         <repository>
             <id>spring-releases</id>
