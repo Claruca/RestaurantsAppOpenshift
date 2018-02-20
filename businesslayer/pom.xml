@@ -24,7 +24,7 @@
             <version>2.2</version>
         </dependency>
     </dependencies>
-    
+
     <profiles>
         <profile>
             <!-- When built in OpenShift the openshift profile will be used when invoking  mvn. -->
@@ -44,7 +44,7 @@
                                 <goals>
                                     <goal>install-file</goal>
                                 </goals>
-                                <phase>validate</phase>
+                                <phase>install</phase>
                             </execution>
                         </executions>
                         <configuration>
