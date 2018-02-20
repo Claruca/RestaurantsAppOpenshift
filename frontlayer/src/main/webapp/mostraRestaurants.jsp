@@ -2,7 +2,7 @@
 <%@ page import="com.iesemilidarder.RestaurantsApp.core.Opinions" %>
 <%@ page import="static java.awt.SystemColor.text" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="Header.jsp" %>
+<%@include file="header.jsp" %>
 
 <%
     Restaurant res = (Restaurant) request.getAttribute("res");

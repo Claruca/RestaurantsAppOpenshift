@@ -5,7 +5,7 @@
 <%@ page import="java.util.Iterator" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.*" %>
-<%@include file="Header.jsp"%> <%--Include del header--%>
+<%@include file="header.jsp"%> <%--Include del header--%>
 
 
 <main class="fonsPrincipal" role="main">

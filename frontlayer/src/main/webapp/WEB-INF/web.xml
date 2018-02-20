@@ -19,12 +19,12 @@
         <url-pattern>/servlet/*</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>MostrarRestaurants</servlet-name>
-        <jsp-file>/MostraRestaurants.jsp</jsp-file>
+        <servlet-name>mostrarRestaurants</servlet-name>
+        <jsp-file>/mostraRestaurants.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
-        <servlet-name>MostrarRestaurants</servlet-name>
-        <url-pattern>/MostrarRestaurants</url-pattern>
+        <servlet-name>mostrarRestaurants</servlet-name>
+        <url-pattern>/mostrarRestaurants</url-pattern>
     </servlet-mapping>
 
     <!--Servlet login-->

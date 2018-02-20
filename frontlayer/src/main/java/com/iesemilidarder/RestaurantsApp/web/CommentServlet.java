@@ -26,7 +26,7 @@ public class CommentServlet extends HttpServlet {
 
         LlegirBD.add_comment(usercom.getCodi(), comentari, num, id);
         request.setAttribute("comment", comentari);
-        request.getRequestDispatcher("MostrarRestaurants").forward(request, response);
+        request.getRequestDispatcher("mostrarRestaurants").forward(request, response);
     }
 
 }
