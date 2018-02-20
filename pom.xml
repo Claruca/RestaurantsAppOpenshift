@@ -41,7 +41,7 @@
                             <artifactId>ojdbc8</artifactId>
                             <version>12.2.0.1</version>
                             <packaging>jar</packaging>
-                            <file>ojdbc8.jar</file>
+                            <file>lib/ojdbc8.jar</file>
                             <generatePom>true</generatePom>
                         </configuration>
                         <executions>
