@@ -1,5 +1,6 @@
 
 package com.iesemilidarder.RestaurantsApp.core;
+
 import org.apache.commons.lang3.StringUtils;
 
 import java.sql.Connection;
@@ -27,7 +28,7 @@ public class LlegirBD {
             Object o = f.apply(rs);
             stmt.close();
             con.close();
-            return rs;
+            return o;
 
         } catch (Exception e) {
             return null;
@@ -47,6 +48,7 @@ public class LlegirBD {
                 query = "SELECT * FROM restaurants res JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI WHERE lower(res.RES_NOM) LIKE '%" + consulta.toLowerCase() + "%'";
 
             }
+
             Class.forName(DRIVER);
             Connection con = DriverManager.getConnection(THIN_URL, USER, PASSWORD);
             Statement stmt = con.createStatement();
@@ -66,27 +68,22 @@ public class LlegirBD {
 
                 ar.add(res);
             }
+//
 
 //            ResultSetMapper<Restaurant> mapper = new ResultSetMapper<>();
-//            ar = mapper.mapRersultSetToObject(rs, Restaurant.class);
-            stmt.close();
-            con.close();
-
-//           VERSION FUNCTIONAL
-
-          /*  ar = new ArrayList<>();
-            Function<ResultSet, Object> func = new Function<ResultSet, Object>() {
-                public Object apply(ResultSet rs) {
-                    return mapper.mapRersultSetToObject(rs, Restaurant.class);
-                }
-            };
-            ar = (ArrayList) searchDB(query, func);*/
+//            Function<ResultSet, Object> func = new Function<ResultSet, Object>() {
+//                public Object apply(ResultSet rs) {
+//                    return mapper.mapResultSetToObject(rs, Restaurant.class);
+//                }
+//            };
+//            ar = (List) searchDB(query, func);
 
         } catch (Exception e) {
             System.out.println((e.toString()));
         }
         return ar;
     }
+
 
 //Un altre mètode per treure més informació de la BD a través d'un string anomenat id
 

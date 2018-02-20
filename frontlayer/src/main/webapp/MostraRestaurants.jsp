@@ -28,11 +28,29 @@
 
 //Treim les opinions de l'array amb un foreach
 
+
         for (Opinions opin : res.getOpinions()) {
-            out.println("<div class =\"opis\">" + "<h5>" + "Codi observació: " + "</h5>" + "<p>" + opin.getOpicodi() + "</p>" +
-                    "<h5>" + "Observació: " + "</h5>" + "<p>" + opin.getObservacio() + "</p>" +
-                    "<h5>" + "Puntuació: " + "</h5>" + "<p>" + opin.getPuntuacio() + "</p>" +
-                    "<h5>" + "Opinió revisada: " + "</h5>" + "<p>" + opin.getOpirevisada() + "</p>" + "</div>"
+            out.println("<table class=\"table table-hover\">\n" +
+                    "    <tbody class=\"fonstaula\">\n" +
+                    "    <tr class=\"table-success\">\n" +
+                    "        <td>Codi observació: </td>\n" +
+                    "        <td>" + opin.getOpicodi() + "</td>\n" +
+                    "    </tr>\n" +
+                    "    <tr class=\"table-active\">\n" +
+                    "        <td>Observació: </td>\n" +
+                    "        <td>" + opin.getObservacio() + "</td>\n" +
+                    "    </tr>\n" +
+                    "    <tr class=\"table-success\">\n" +
+                    "        <td>Puntuació: </td>\n" +
+                    "        <td>" + opin.getPuntuacio() + "</td>\n" +
+                    "    </tr>\n" +
+                    "    <tr class=\"table-active\">\n" +
+                    "        <td>Opinió revisada: </td>\n" +
+                    "        <td>" + opin.getOpirevisada() + "</td>\n" +
+                    "    </tr>\n" +
+                    "    \n" +
+                    "    </tbody>\n" +
+                    "</table>"
             );
         }
 
