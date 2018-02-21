@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>front-layer</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
     <!--Deployment en war-->
     <packaging>war</packaging>
