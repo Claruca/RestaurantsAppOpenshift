@@ -44,6 +44,7 @@
             <id>openshift</id>
             <build>
                 <plugins>
+                    <!--Instalar libreria jdbc localmente antes de hacer el build-->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-install-plugin</artifactId>
@@ -66,47 +67,23 @@
                             </execution>
                         </executions>
                     </plugin>
-
-
-                    <!--<plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-install-plugin</artifactId>
-                        <version>2.5.2</version>
-                        <configuration>
-                            <groupId>com.oracle</groupId>
-                            <artifactId>ojdbc8</artifactId>
-                            <version>12.2.0.1</version>
-                            <packaging>jar</packaging>
-                            <file>ojdbc8.jar</file>
-                            <generatePom>true</generatePom>
-                        </configuration>
+                    <!-- any other plugins -->
+                    <plugin>
+                        <artifactId>maven-assembly-plugin</artifactId>
                         <executions>
                             <execution>
-                                <id>install-jar-lib</id>
+                                <phase>package</phase>
                                 <goals>
-                                    <goal>install-file</goal>
+                                    <goal>single</goal>
                                 </goals>
-                                <phase>validate</phase>
                             </execution>
                         </executions>
-                    </plugin>-->
-
-                    <!--<plugin>-->
-                    <!--<artifactId>maven-assembly-plugin</artifactId>-->
-                    <!--<executions>-->
-                    <!--<execution>-->
-                    <!--<phase>package</phase>-->
-                    <!--<goals>-->
-                    <!--<goal>single</goal>-->
-                    <!--</goals>-->
-                    <!--</execution>-->
-                    <!--</executions>-->
-                    <!--<configuration>-->
-                    <!--<descriptorRefs>-->
-                    <!--<descriptorRef>jar-with-dependencies</descriptorRef>-->
-                    <!--</descriptorRefs>-->
-                    <!--</configuration>-->
-                    <!--</plugin>-->
+                        <configuration>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                        </configuration>
+                    </plugin>
                 </plugins>
             </build>
         </profile>

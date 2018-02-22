@@ -52,7 +52,7 @@
             $.each(data, function (index, value) {
                 var cell = "<div><p>Nombre:" + value.nom + "</p></div><br>";
                 cell += "<div><p>Telèfon: " + value.telefon + "</p></div><br>";
-                cell += "<img class=\"align-self-start mr-5 rounded-circle\" " + value.imatge + " alt=\"Random Image\" width=\"120\" height=\"120\"><br>";
+                cell += "<div><img class ='align-self-start mr-5 rounded-circle' src='"  + value.imatge + "' alt=\"Random Image\" width=\"120\" height=\"120\"></div><br>";
                 contentHtml += cell;
             });
             $(".myUsers").html(contentHtml);
