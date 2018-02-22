@@ -12,7 +12,7 @@ import java.util.List;
 public class HomeController {
     @RequestMapping("/")
     public String index(Model model) {
-        String name = "Restaurant";
+        String name = "Restaurants";
         LlegirBD dbManager = new LlegirBD();
         List<Restaurant> arrData = dbManager.mostrarRes(StringUtils.EMPTY);
 

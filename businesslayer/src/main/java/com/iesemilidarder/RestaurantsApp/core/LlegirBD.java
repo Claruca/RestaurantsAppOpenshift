@@ -68,15 +68,6 @@ public class LlegirBD {
 
                 ar.add(res);
             }
-//
-
-//            ResultSetMapper<Restaurant> mapper = new ResultSetMapper<>();
-//            Function<ResultSet, Object> func = new Function<ResultSet, Object>() {
-//                public Object apply(ResultSet rs) {
-//                    return mapper.mapResultSetToObject(rs, Restaurant.class);
-//                }
-//            };
-//            ar = (List) searchDB(query, func);
 
         } catch (Exception e) {
             System.out.println((e.toString()));
@@ -85,12 +76,12 @@ public class LlegirBD {
     }
 
 
-//Un altre mètode per treure més informació de la BD a través d'un string anomenat id
+//Mostra més info del restaurant
 
     public Restaurant mostrarResInfo(String id) {
         Restaurant res = null;
         //Cream l'arraylist d'opinions
-        ArrayList<Opinions> opi = new ArrayList<Opinions>();
+        ArrayList<Opinions> opi = new ArrayList<>();
 
         try {
             String query = "SELECT * FROM restaurants res JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI LEFT JOIN opinions opi ON opi.OPI_RES_CODI = res.RES_CODI WHERE RES_CODI ='" + id + "'";
@@ -121,16 +112,14 @@ public class LlegirBD {
                 opinio.setPuntuacio(rs.getString("OPI_PUNTUACIO"));
                 opinio.setOpirevisada(rs.getString("OPI_OPINIO_REVISADA"));
 
-                //Ficam els camps dins l'array
                 opi.add(opinio);
             }
 
-            //Afegim al restaurant l'array creada amb els camps
 
             res.setOpinions(opi);
 
 
-            stmt.close(); //tancam connexions
+            stmt.close();
             con.close();
 
 
@@ -144,6 +133,8 @@ public class LlegirBD {
 
     }
 
+    //Mètode per afegir comentaris si l'usuari està loggejat
+
     public static void add_comment(String usuari, String comment, String score, String id) {
 
         try {
@@ -152,25 +143,46 @@ public class LlegirBD {
                     "jdbc:oracle:thin:@35.205.41.45:1521:XE", "usuari", "usuari");
 
             Statement stmt = con.createStatement();
-            //            String query = "INSERT INTO OPINIONS(OPI_OBSERVACIO,OPI_PUNTUACIO) VALUES (" + comment + score + " )WHERE RES_CODI="+id;
-//
-
-
             String query = "INSERT INTO OPINIONS(OPI_RES_CODI,OPI_OBSERVACIO,OPI_PUNTUACIO,OPI_USU_CODI) VALUES ('" + id + "','" + comment + "'," + score + ",'" + usuari + "' )WHERE RES_CODI='" + id + "'";
-//            PreparedStatement pstmt = con.prepareStatement(query);
 
             stmt.executeUpdate(query);
-
-//            ResultSet statquery = null;
-//
-//            pstmt.setString(1, id);
-//            pstmt.executeUpdate(query);
-
 
         } catch (Exception ex) {
             System.out.println("error comentari");
         }
     }
 
+    //Mètode per mostrar els restaurants per la api-rest
+
+    public List getRestaurants(boolean search) {
+
+        List<Restaurant> arrayRes = new ArrayList<>();
+        ResultSetMapper<Restaurant> mapper = new ResultSetMapper<>();
+        try {
+            final String query = "SELECT R.RES_CODI,R.RES_NOM,R.RES_ADRECA,R.RES_WEB,R.RES_TELEFON,R.RES_URL_IMG,R.RES_MITJANA, TR.TRS_DESCRIPCIO FROM " +
+                    "RESTAURANTS R,TRESTAURANTS TR WHERE  R.RES_TRS_CODI = TR.TRS_CODI";
+            if (search) {
+                //VERSION GENERICS
+                Class.forName(DRIVER);
+                Connection con = DriverManager.getConnection(THIN_URL, USER, PASSWORD);
+                Statement stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(query);
+                arrayRes = mapper.mapResultSetToObject(rs, Restaurant.class);
+                stmt.close();
+                con.close();
+
+            } else {
+
+                //VERSION FUNCTIONAL
+                arrayRes = new ArrayList<>();
+                Function<ResultSet, Object> func = rs -> mapper.mapResultSetToObject(rs, Restaurant.class); //Lo he sustituido por lambdas
+
+                arrayRes = (ArrayList) searchDB(query, func);
+            }
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+        return arrayRes;
+    }
 
 }

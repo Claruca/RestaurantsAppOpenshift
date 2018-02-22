@@ -1,4 +1,4 @@
-Instalar Dependencias ojdbc
+#Instalar ojdbc.jar en las dependencias de maven
 
 
-mvn install:install-file -Dfile=ojdbc8.jar -DgroupId=com.oracle -DartifactId=ojdbc8 -Dversion=12.2.0.1 -Dpackaging=jar -DgeneratePom=true -DprofileIdEnabled=true -Popenshift
+mvn install:install-file -Dfile=ojdbc6-11.2.0.3.jar -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0.3 -Dpackaging=jar -DgeneratePom=true

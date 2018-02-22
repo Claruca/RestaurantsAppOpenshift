@@ -14,19 +14,21 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">Restaurantes</a>
+    <a class="navbar-brand" href="#">Restaurants</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarColor01"
-    ">
+    <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link disabled" href="#">Otros</a>
+            <a class="nav-link disabled" href="/rest/api/v1/restaurants">RestApi</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="/ajax.html">Version Ajax</a>
         </li>
     </ul>
     </div>
@@ -36,7 +38,7 @@
     <div class="row featurette">
         <div class="col-md-7">
             <h1 class="display-3"><#if name??>
-                Benvinguts al  ${name!"yuhu"}
+                Els millors ${name!"yuhu"} de Mallorca
             </#if></h1>
             <hr class="my-4">
             <a class="btn btn-info" href="#" role="button"><span class="text-muted">Més informació</span></a>
@@ -46,20 +48,6 @@
         </div>
     </div>
 </div>
-<#--<main role="main" class="container">-->
-<#--<div class="row featurette">-->
-<#--<div class="col-md-7">-->
-<#--<h1><#if name??>-->
-<#--<h1>Benvinguts al  ${name!"yuhu"}</h1>-->
-<#--</#if></h1>-->
-<#--<h2 class="featurette-heading">${subtitle!""}-->
-<#--<br/><span class="text-muted">Més informació</span>-->
-<#--</h2>-->
-<#--</div>-->
-<#--<div class="col-md-5">-->
-<#--<img src="http://lorempixel.com/500/150"/>-->
-<#--</div>-->
-<#--</div>-->
 
 <#--La variable posts a la que hacemos referencia en el Launcher tendrá la info de la BD-->
 <#if list??>

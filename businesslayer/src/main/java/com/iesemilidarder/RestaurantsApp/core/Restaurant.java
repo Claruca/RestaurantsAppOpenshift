@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 //Le señala que esta clase es la representación de una tabla de BD
 @Entity()
-public class Restaurant {
+public class Restaurant extends DBObject{
     @Column(name="RES_CODI")
     private String codi;
 
@@ -148,6 +148,11 @@ public class Restaurant {
     }
 
     public Restaurant() {
+    }
+
+    protected void beforeSave() {
+        doLog(String.format("Saving %s", this.getClass().getCanonicalName()));
+        System.out.println("Saving users");
     }
 }
 

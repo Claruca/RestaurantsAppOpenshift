@@ -21,7 +21,7 @@ public class ApiRestController {
     public List<Restaurant> list() {
 
         LlegirBD dbManager = new LlegirBD();
-        List<Restaurant> arrData = dbManager.mostrarRes(StringUtils.EMPTY);
+        List<Restaurant> arrData = dbManager.getRestaurants(false);
         return arrData;
     }
 
