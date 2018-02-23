@@ -18,6 +18,6 @@ public class ShowRestaurantServlet extends HttpServlet {
         String id = request.getParameter("id");
         Restaurant res = bd.mostrarResInfo(id);
         request.setAttribute("res", res);
-        request.getRequestDispatcher("MostrarRestaurants").forward(request, response);
+        request.getRequestDispatcher("mostrarRestaurants").forward(request, response);
     }
 }
