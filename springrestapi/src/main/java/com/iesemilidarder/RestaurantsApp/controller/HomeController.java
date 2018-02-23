@@ -18,10 +18,9 @@ public class HomeController {
         LlegirBD dbManager = new LlegirBD();
         List<Restaurant> arrData = dbManager.mostrarRes(StringUtils.EMPTY);
 
-
         model.addAttribute("name",name);
-        model.addAttribute("list",arrData);
+        model.addAttribute("list",arrData); //Llamamos a la lista array
         model.addAttribute("dbManager",dbManager);
-        return "index";
+        return "index"; //redirecciona al index.ftl, en este caso
     }
 }

@@ -14,9 +14,6 @@ import java.io.IOException;
 public class CommentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//      String name = request.getParameter();
-//      Usuaris usercom = new Usuaris();
-
         Usuaris usercom = (Usuaris) request.getSession().getAttribute("usuari");
 
         String comentari = request.getParameter("comment");
@@ -31,10 +28,3 @@ public class CommentServlet extends HttpServlet {
 
 }
 
-
-//    Otro metodo static void insertarcomentari(String usuari, String comentari)
-
-//    String query = Insert bla bla
-////    try, catch
-//    un altre preparemet statement
-//            executeUpdate(query)

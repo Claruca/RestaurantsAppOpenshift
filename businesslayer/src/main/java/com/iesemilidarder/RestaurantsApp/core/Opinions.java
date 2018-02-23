@@ -1,6 +1,6 @@
 package com.iesemilidarder.RestaurantsApp.core;
 
-//Nova classe opinions
+//Bean Opinions
 
 public class Opinions {
     private String opicodi;
