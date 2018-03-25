@@ -82,7 +82,6 @@ public class LlegirBD {
 
     public Restaurant mostrarResInfo(String id) {
         Restaurant res = null;
-        //Cream l'arraylist d'opinions
         ArrayList<Opinions> opi = new ArrayList<>();
 
         try {

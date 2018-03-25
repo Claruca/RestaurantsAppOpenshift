@@ -21,6 +21,7 @@ public class ApiRestController {
     public List<Restaurant> list() {
 
         LlegirBD dbManager = new LlegirBD();
+//        Llamada al método que nos devuelve una lista de restaurantes
         List<Restaurant> arrData = dbManager.getRestaurants(false);
         return arrData;
     }
