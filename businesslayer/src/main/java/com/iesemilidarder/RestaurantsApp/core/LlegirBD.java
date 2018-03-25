@@ -13,9 +13,11 @@ import java.util.function.Function;
 
 public class LlegirBD {
     private static final String DRIVER = "oracle.jdbc.driver.OracleDriver";
-    private static final String THIN_URL = "jdbc:oracle:thin:@35.205.41.45:1521:XE";
+    private static final String THIN_URL = "jdbc:oracle:thin:@35.180.32.114:1521:XE";
     private static final String USER = "usuari ";
     private static final String PASSWORD = "usuari";
+
+
 
     private Object searchDB(String query, Function<ResultSet, Object> f) {
         Connection con;
@@ -140,7 +142,7 @@ public class LlegirBD {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection con = DriverManager.getConnection(
-                    "jdbc:oracle:thin:@35.205.41.45:1521:XE", "usuari", "usuari");
+                    "jdbc:oracle:thin:@35.180.32.114:1521:XE", "usuari", "usuari");
 
             Statement stmt = con.createStatement();
             String query = "INSERT INTO OPINIONS(OPI_RES_CODI,OPI_OBSERVACIO,OPI_PUNTUACIO,OPI_USU_CODI) VALUES ('" + id + "','" + comment + "'," + score + ",'" + usuari + "' )WHERE RES_CODI='" + id + "'";

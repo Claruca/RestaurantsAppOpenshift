@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection con = DriverManager.getConnection(
-                    "jdbc:oracle:thin:@35.205.41.45:1521:XE", "usuari", "usuari");
+                    "jdbc:oracle:thin:@35.180.32.114:1521:XE", "usuari", "usuari");
 
 
             Statement stmt = con.createStatement();
