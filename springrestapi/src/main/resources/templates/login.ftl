@@ -41,7 +41,7 @@
 
     <div class="container">
 
-        <form class="centrar" role="form" action="/login" method="post">
+        <form style="margin-left:100px; margin-right: 500px" role="form" action="/login" method="post">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
             <div>
