@@ -64,7 +64,7 @@ public class LlegirBD {
                 res.setLlocweb(rs.getString("RES_WEB"));
                 res.setTelefon(rs.getString("RES_TELEFON"));
                 res.setTipus(rs.getString("TRS_DESCRIPCIO"));
-                res.setImatge(rs.getString("RES_URL_IMG"));
+//                res.setImatge(rs.getString("RES_URL_IMG"));
                 res.setMitjana(rs.getString("RES_MITJANA"));
 
 
@@ -101,7 +101,7 @@ public class LlegirBD {
                     res.setLlocweb(rs.getString("RES_WEB"));
                     res.setTelefon(rs.getString("RES_TELEFON"));
                     res.setTipus(rs.getString("TRS_DESCRIPCIO"));
-                    res.setImatge(rs.getString("RES_URL_IMG"));
+//                    res.setImatge(rs.getString("RES_URL_IMG"));
                     res.setMitjana(rs.getString("RES_MITJANA"));
                     res.setLatitud(rs.getString("RES_LATITUD"));
                     res.setLongitud(rs.getString("RES_LONGITUD"));
