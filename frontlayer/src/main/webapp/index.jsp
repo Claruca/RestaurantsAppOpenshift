@@ -29,7 +29,7 @@
             List<Restaurant> ar = llegirBd.mostrarRes(request.getParameter("consulta"));
             for(Restaurant res: ar){
                 out.println("<div class=\"row\">" +
-                    " <div class =\"col-md-4\">" + "<img class=\"img-fluid rounded\" src=\" " + res.getImatge() + "\">" + "</div>" +
+//                    " <div class =\"col-md-4\">" + "<img class=\"img-fluid rounded\" src=\" " + res.getImatge() + "\">" + "</div>" +
                     "<div class=\"col-md-8\">" +
                     "<h3>" + res.getNom() + "</h3>" +
                     "<p>" + res.getAdressa() + "</p>" +
@@ -42,7 +42,6 @@
                     "</div >" +
                     "</div >"
             );
-
 
             } %>
 

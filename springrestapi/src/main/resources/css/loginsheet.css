@@ -1,3 +1,13 @@
+
 .display-3 {
-    color: red;
+    font-family: fantasy;
+
+}
+
+.text-muted {
+    color: #0e0e0e !important;
+}
+
+.imagen {
+    border-radius: 10%;
 }

@@ -4,3 +4,5 @@ spring:
   mvc:
     view:
       prefix: /templates/
+#debug: true
+

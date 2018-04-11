@@ -20,24 +20,31 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("bill").password("abc123").roles("ADMIN");
-        auth.inMemoryAuthentication().withUser("tom").password("abc123").roles("USER");
+        auth.inMemoryAuthentication()
+                .withUser("clara")
+                .password("123")
+                .roles("ADMIN")
+             .and()
+                .withUser("juan")
+                .password("123")
+                .roles("USER");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/users/**").hasAuthority("ADMIN")
+                //.antMatchers("/users/**").hasAuthority("ADMIN")
+                .antMatchers("/rest/api/**").hasRole("ADMIN")
                 .anyRequest().fullyAuthenticated()
                 .and()
-                .formLogin()
+            .formLogin()
                 .loginPage("/login")
                 .failureUrl("/login?error")
                 .usernameParameter("username")
                 .permitAll()
                 .and()
-                .logout()
+            .logout()
                 .logoutUrl("/logout")
                 .deleteCookies("remember-me")
                 .logoutSuccessUrl("/")

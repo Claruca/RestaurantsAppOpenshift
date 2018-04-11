@@ -160,8 +160,11 @@ public class LlegirBD {
         List<Restaurant> arrayRes = new ArrayList<>();
         ResultSetMapper<Restaurant> mapper = new ResultSetMapper<>();
         try {
-            final String query = "SELECT R.RES_CODI,R.RES_NOM,R.RES_ADRECA,R.RES_WEB,R.RES_TELEFON,R.RES_URL_IMG,R.RES_MITJANA, TR.TRS_DESCRIPCIO FROM " +
+            final String query = "SELECT R.RES_CODI,R.RES_NOM,R.RES_ADRECA,R.RES_WEB,R.RES_TELEFON,R.RES_MITJANA, TR.TRS_DESCRIPCIO FROM " +
                     "RESTAURANTS R,TRESTAURANTS TR WHERE  R.RES_TRS_CODI = TR.TRS_CODI";
+
+//            final String query = "SELECT R.RES_CODI,R.RES_NOM,R.RES_ADRECA,R.RES_WEB,R.RES_TELEFON,R.RES_URL_IMG,R.RES_MITJANA, TR.TRS_DESCRIPCIO FROM " +
+//                    "RESTAURANTS R,TRESTAURANTS TR WHERE  R.RES_TRS_CODI = TR.TRS_CODI";
             if (search) {
                 //VERSION GENERICS
                 Class.forName(DRIVER);
