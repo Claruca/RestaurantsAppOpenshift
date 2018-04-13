@@ -19,6 +19,8 @@ public class LoginController {
     public ModelAndView getLoginPage(@RequestParam Optional<String> error) {
         LOGGER.debug("Getting login page, error={}", error);
         return new ModelAndView("login", "error", error);
+
+
     }
 
 }
