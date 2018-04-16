@@ -64,7 +64,7 @@ public class LlegirBD {
                 res.setLlocweb(rs.getString("RES_WEB"));
                 res.setTelefon(rs.getString("RES_TELEFON"));
                 res.setTipus(rs.getString("TRS_DESCRIPCIO"));
-//                res.setImatge(rs.getString("RES_URL_IMG"));
+                res.setImatge(rs.getString("RES_URL_IMG"));
                 res.setMitjana(rs.getString("RES_MITJANA"));
 
 
@@ -101,7 +101,7 @@ public class LlegirBD {
                     res.setLlocweb(rs.getString("RES_WEB"));
                     res.setTelefon(rs.getString("RES_TELEFON"));
                     res.setTipus(rs.getString("TRS_DESCRIPCIO"));
-//                    res.setImatge(rs.getString("RES_URL_IMG"));
+                    res.setImatge(rs.getString("RES_URL_IMG"));
                     res.setMitjana(rs.getString("RES_MITJANA"));
                     res.setLatitud(rs.getString("RES_LATITUD"));
                     res.setLongitud(rs.getString("RES_LONGITUD"));
@@ -160,7 +160,7 @@ public class LlegirBD {
         List<Restaurant> arrayRes = new ArrayList<>();
         ResultSetMapper<Restaurant> mapper = new ResultSetMapper<>();
         try {
-            final String query = "SELECT R.RES_CODI,R.RES_NOM,R.RES_ADRECA,R.RES_WEB,R.RES_TELEFON,R.RES_MITJANA, TR.TRS_DESCRIPCIO FROM " +
+            final String query = "SELECT R.RES_CODI,R.RES_NOM,R.RES_ADRECA,R.RES_WEB,R.RES_TELEFON,RES_RS_CODI,R.RES_MITJANA, TR.TRS_DESCRIPCIO FROM " +
                     "RESTAURANTS R,TRESTAURANTS TR WHERE  R.RES_TRS_CODI = TR.TRS_CODI";
 
 //            final String query = "SELECT R.RES_CODI,R.RES_NOM,R.RES_ADRECA,R.RES_WEB,R.RES_TELEFON,R.RES_URL_IMG,R.RES_MITJANA, TR.TRS_DESCRIPCIO FROM " +

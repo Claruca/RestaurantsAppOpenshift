@@ -26,8 +26,8 @@ public class Restaurant extends DBObject{
     @Column(name="TRS_DESCRIPCIO")
     private String tipus;
 
-//    @Column(name="RES_URL_IMG")
-//    private String imatge;
+    @Column(name="RES_URL_IMG")
+    private String imatge;
 
     @Column(name="RES_MITJANA")
     private String Mitjana;
@@ -70,9 +70,9 @@ public class Restaurant extends DBObject{
         return codi;
     }
 
-//    public String getImatge() {
-//        return imatge;
-//    }
+    public String getImatge() {
+        return imatge;
+    }
 
     public String getLatitud() {
         return Latitud;
@@ -107,9 +107,9 @@ public class Restaurant extends DBObject{
     }
 
 
-//    public void setImatge(String imatge) {
-//        this.imatge = imatge;
-//    }
+    public void setImatge(String imatge) {
+        this.imatge = imatge;
+    }
 
 
     public void setLlocweb(String llocweb) {
