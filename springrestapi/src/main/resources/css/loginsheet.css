@@ -11,3 +11,8 @@
 .imagen {
     border-radius: 10%;
 }
+
+.nav-item {
+    padding-right: 80px;
+    display:inline;
+}
