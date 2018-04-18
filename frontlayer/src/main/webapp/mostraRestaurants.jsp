@@ -22,7 +22,6 @@
                 "<p>" + res.getLongitud() + "</p>" +
                 "</div >" + "<div>");
 
-
         out.println("<h3 class=\"espai\">" + "Opinons restaurants:  " + "</h3>");
 
 
@@ -65,7 +64,7 @@
                 "    <form action=\"commentservlet\" method=\"post\">\n" +
                 "        <input class=\"form-control\" type=\"text\" placeholder=\"Comentari\" name=\"comment\"/><br/>\n" +
                 "        <input class=\"form-control\" type=\"text\" placeholder=\"puntuacio\" name=\"score\"/><br/><br/>\n" +
-                "        <input type=\"hidden\" name=\"id\" value="+res.getCodi()+"><br/>" +
+                "        <input type=\"hidden\" name=\"id\" value=" + res.getCodi() + "><br/>" +
                 "        <button type=\"submit\" class=\"btn btn-success\" value=\"Comment\">Afegeix un comentari</button>\n" +
                 "    </form>\n" +
                 "</div>");
@@ -97,6 +96,7 @@
         </li>
     </ul>
 </div>
+
 
 </body>
 </html>

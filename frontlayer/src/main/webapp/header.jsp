@@ -29,46 +29,52 @@
 <body>
 
 <!-- Barra de navegació -->
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 
-    <img src="https://png.icons8.com/color/50/000000/broccoli.png" style="border: none;">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="index.jsp"> Restaurants</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
+<div class="container-fluid navbar-dark">
+    <nav class="navbar navbar-expand-md fixed-top bg-dark navbar-toggleable-sm">
+
+        <img src="https://png.icons8.com/color/50/000000/broccoli.png" class="d-inline-block align-top"
+             style="border: none;">
+
+        <a class="navbar-brand" href="index.jsp"> Restaurants</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
         <%--Icones principals--%>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="navbar-nav mr-auto">
+                <a class="nav-item nav-link mr-auto" href="index.jsp">Inici <span class="sr-only">(current)</span></a>
 
-            <ul class="nav navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.jsp">Inici <span class="sr-only">(current)</span></a>
-                </li>
+                <%--<ul class="nav navbar-nav mr-auto">--%>
+                <%--<li class="nav-item active">--%>
+                <%--<a class="nav-link" href="index.jsp">Inici <span class="sr-only">(current)</span></a>--%>
+                <%--</li>--%>
                 <%--Agafa la sessió de l'usuari i imprimeix nom i email--%>
                 <%
                     Usuaris usuari = (Usuaris) session.getAttribute("usuari");
                     if (usuari != null) {
-                        out.println("<li class=\"nav nav-item\">" + "Benvingut:" + usuari.getCodi() + "</li>"
-                                + "<li class=\"nav nav-item\">" + "Usuari: " + usuari.getEmail() + "</li>");
+                        out.println("<a class=\"nav-item nav-link mr-auto disabled\">" + usuari.getCodi() + "</a>"
+                                + "<a class=\"nav-item nav-link mr-auto disabled\">" + "&nbsp" + usuari.getEmail() + "</a>");
 
 //                 <div class="well">Basic Well</div>
 //                "<div class=\"well\">"
                     }
 
                 %>
-            </ul>
+            </div>
+            <%--</ul>--%>
             <%--Mostra el botó diferent depenent si hi ha sessió d'usuari o no --%>
             <% if (session.getAttribute("usuari") != null) {
                 out.println("<form action=\"logout\" method=\"post\">\n" +
-                        "            <button type=\"submit\" class=\"btn btn-success\" value=\"logout\">Logout</button>\n" +
+                        "            <button type=\"submit\" class=\"btn btn-success mr-2\" value=\"logout\">Logout</button>\n" +
                         "        </form>");
             } else {
                 out.println("<form action=\"loginPage.html\" method=\"post\">\n" +
-                        "            <button type=\"submit\" class=\"btn btn-success\" value=\"login\">Login</button>\n" +
+                        "            <button type=\"submit\" class=\"btn btn-success mr-2\" value=\"login\">Login</button>\n" +
                         "        </form>");
 
             }
@@ -92,5 +98,6 @@
                 </div>
             </form>
         </div>
-    </div>
-</nav>
+    </nav>
+</div>
+
