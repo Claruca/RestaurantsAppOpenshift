@@ -1,8 +1,8 @@
 /* Canvis en el bootstrap per defecte, modificant colors, fonts i tamany de fonts*/
 
-/*.row {*/
-    /*margin: 20px;*/
-/*}*/
+.row {
+    margin: 40px;
+}
 
 .fonsPrincipal {
     background-color: #cef5ce;

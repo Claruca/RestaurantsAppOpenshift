@@ -28,7 +28,7 @@
 //Treim les opinions de l'array amb un foreach
 
 
-        for (Opinions opin : res.getOpinions()) {
+       /* for (Opinions opin : res.getOpinions()) {
             out.println("<table class=\"table table-hover\">\n" +
                     "    <tbody class=\"fonstaula\">\n" +
                     "    <tr class=\"table-success\">\n" +
@@ -50,8 +50,33 @@
                     "    \n" +
                     "    </tbody>\n" +
                     "</table>"
+            );*/
+
+        out.println("<table class=\"table table-hover\" mr-auto>\n" +
+                "<tbody class=\"fonstaula\">\n");
+
+        for (Opinions opin : res.getOpinions()) {
+            out.println("<tr class=\"table-success\">\n" +
+                    "        <td>Codi observació: </td>\n" +
+                    "        <td>" + opin.getOpicodi() + "</td>\n" +
+                    "    </tr>\n" +
+                    "    <tr class=\"table-active\">\n" +
+                    "        <td>Observació: </td>\n" +
+                    "        <td>" + opin.getObservacio() + "</td>\n" +
+                    "    </tr>\n" +
+                    "    <tr class=\"table-success\">\n" +
+                    "        <td>Puntuació: </td>\n" +
+                    "        <td>" + opin.getPuntuacio() + "</td>\n" +
+                    "    </tr>\n" +
+                    "    <tr class=\"table-active\">\n" +
+                    "        <td>Opinió revisada: </td>\n" +
+                    "        <td>" + opin.getOpirevisada() + "</td>\n" +
+                    "    </tr>\n"
             );
         }
+
+        out.println("</tbody>\n" +
+                "</table>");
 
     }
 %>
@@ -70,6 +95,7 @@
                 "</div>");
     }
 %>
+
 
 <div class="pagination">
     <ul class="pagination pagination-lg">
@@ -96,6 +122,7 @@
         </li>
     </ul>
 </div>
+
 
 
 </body>

@@ -33,10 +33,11 @@
 <div class="container-fluid navbar-dark">
     <nav class="navbar navbar-expand-md fixed-top bg-dark navbar-toggleable-sm">
 
-        <img src="https://png.icons8.com/color/50/000000/broccoli.png" class="d-inline-block align-top"
-             style="border: none;">
+        <%--<img src="https://png.icons8.com/color/50/000000/broccoli.png" class="d-inline-block align-top"--%>
+             <%--style="border: none;">--%>
 
-        <a class="navbar-brand" href="index.jsp"> Restaurants</a>
+        <a class="navbar-brand" href="index.jsp"><img src="https://png.icons8.com/color/50/000000/broccoli.png" class="d-inline-block align-top"
+                                                      style="border: none;"></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
