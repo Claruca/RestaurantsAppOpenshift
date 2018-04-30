@@ -7,35 +7,35 @@ import java.util.ArrayList;
 
 //Le señala que esta clase es la representación de una tabla de BD
 @Entity()
-public class Restaurant extends DBObject{
-    @Column(name="RES_CODI")
+public class Restaurant extends DBObject {
+    @Column(name = "RES_CODI")
     private String codi;
 
-    @Column(name="RES_NOM")
+    @Column(name = "RES_NOM")
     private String nom;
 
-    @Column(name="RES_ADRECA")
+    @Column(name = "RES_ADRECA")
     private String adressa;
 
-    @Column(name="RES_WEB")
+    @Column(name = "RES_WEB")
     private String llocweb;
 
-    @Column(name="RES_TELEFON")
+    @Column(name = "RES_TELEFON")
     private String telefon;
 
-    @Column(name="TRS_DESCRIPCIO")
+    @Column(name = "TRS_DESCRIPCIO")
     private String tipus;
 
-    @Column(name="RES_URL_IMG")
+    @Column(name = "RES_URL_IMG")
     private String imatge;
 
-    @Column(name="RES_MITJANA")
+    @Column(name = "RES_MITJANA")
     private String Mitjana;
 
-    @Column(name="RES_LATITUD")
+    @Column(name = "RES_LATITUD")
     private String Latitud;
 
-    @Column(name="RES_LONGITUD")
+    @Column(name = "RES_LONGITUD")
     private String Longitud;
 
     //Cream arraylist de la classe opinons

@@ -139,12 +139,13 @@ public class LlegirBD {
     public static void add_comment(String usuari, String comment, String score, String id) {
 
         try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Class.forName(DRIVER);
             Connection con = DriverManager.getConnection(
-                    "jdbc:oracle:thin:@35.180.32.114:1521:XE", "usuari", "usuari");
+                    THIN_URL, USER, PASSWORD);
 
             Statement stmt = con.createStatement();
-            String query = "INSERT INTO OPINIONS(OPI_RES_CODI,OPI_OBSERVACIO,OPI_PUNTUACIO,OPI_USU_CODI) VALUES ('" + id + "','" + comment + "'," + score + ",'" + usuari + "' )WHERE RES_CODI='" + id + "'";
+            String query = "INSERT INTO OPINIONS(OPI_RES_CODI,OPI_OBSERVACIO,OPI_PUNTUACIO,OPI_OPINIO_REVISADA,OPI_USU_CODI) VALUES ('" + id + "','" + comment + "'," + score + ",'N','" + usuari + "' )";
+
 
             stmt.executeUpdate(query);
 

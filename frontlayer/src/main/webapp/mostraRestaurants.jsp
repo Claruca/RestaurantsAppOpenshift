@@ -1,6 +1,5 @@
 <%@ page import="com.iesemilidarder.RestaurantsApp.core.Restaurant " %>
 <%@ page import="com.iesemilidarder.RestaurantsApp.core.Opinions" %>
-<%@ page import="static java.awt.SystemColor.text" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="header.jsp" %>
 
@@ -25,58 +24,33 @@
         out.println("<h3 class=\"espai\">" + "Opinons restaurants:  " + "</h3>");
 
 
-//Treim les opinions de l'array amb un foreach
 
 
-       /* for (Opinions opin : res.getOpinions()) {
-            out.println("<table class=\"table table-hover\">\n" +
-                    "    <tbody class=\"fonstaula\">\n" +
-                    "    <tr class=\"table-success\">\n" +
-                    "        <td>Codi observació: </td>\n" +
-                    "        <td>" + opin.getOpicodi() + "</td>\n" +
-                    "    </tr>\n" +
-                    "    <tr class=\"table-active\">\n" +
-                    "        <td>Observació: </td>\n" +
-                    "        <td>" + opin.getObservacio() + "</td>\n" +
-                    "    </tr>\n" +
-                    "    <tr class=\"table-success\">\n" +
-                    "        <td>Puntuació: </td>\n" +
-                    "        <td>" + opin.getPuntuacio() + "</td>\n" +
-                    "    </tr>\n" +
-                    "    <tr class=\"table-active\">\n" +
-                    "        <td>Opinió revisada: </td>\n" +
-                    "        <td>" + opin.getOpirevisada() + "</td>\n" +
-                    "    </tr>\n" +
-                    "    \n" +
-                    "    </tbody>\n" +
-                    "</table>"
-            );*/
-
-        out.println("<table class=\"table table-hover\" mr-auto>\n" +
+        out.println("<table class=\"table table-striped table-sm\" mr-auto>" +
+                "<thead>" +
+                "<tr class=\"table-success\">" +
+                "        <th scope=\"col\">Codi observació </th>\n" +
+                "        <th scope=\"col\">Observació </th>\n" +
+                "        <th scope=\"col\">Puntuació </th>\n" +
+                "        <th scope=\"col\">Opinió revisada </th>\n" +
+                "</tr>" +
                 "<tbody class=\"fonstaula\">\n");
 
+        //Treim les opinions de l'array amb un foreach
         for (Opinions opin : res.getOpinions()) {
-            out.println("<tr class=\"table-success\">\n" +
-                    "        <td>Codi observació: </td>\n" +
-                    "        <td>" + opin.getOpicodi() + "</td>\n" +
-                    "    </tr>\n" +
-                    "    <tr class=\"table-active\">\n" +
-                    "        <td>Observació: </td>\n" +
-                    "        <td>" + opin.getObservacio() + "</td>\n" +
-                    "    </tr>\n" +
-                    "    <tr class=\"table-success\">\n" +
-                    "        <td>Puntuació: </td>\n" +
-                    "        <td>" + opin.getPuntuacio() + "</td>\n" +
-                    "    </tr>\n" +
-                    "    <tr class=\"table-active\">\n" +
-                    "        <td>Opinió revisada: </td>\n" +
-                    "        <td>" + opin.getOpirevisada() + "</td>\n" +
-                    "    </tr>\n"
+            out.println(
+                    "<tr>" +
+                            "       <td>" + opin.getOpicodi() + "</td>" +
+                            "        <td>" + opin.getObservacio() + "</td>" +
+                            "        <td>" + opin.getPuntuacio() + "</td>" +
+                            "        <td>" + opin.getOpirevisada() + "</td>" +
+                            "</tr>"
+
             );
         }
 
-        out.println("</tbody>\n" +
-                "</table>");
+
+        out.println("</tbody>" + "</table>");
 
     }
 %>
@@ -87,8 +61,19 @@
         out.println("<div class=\"form-group\">\n" +
                 "    <h3>Afegeix un comentari</h3>\n" +
                 "    <form action=\"commentservlet\" method=\"post\">\n" +
-                "        <input class=\"form-control\" type=\"text\" placeholder=\"Comentari\" name=\"comment\"/><br/>\n" +
-                "        <input class=\"form-control\" type=\"text\" placeholder=\"puntuacio\" name=\"score\"/><br/><br/>\n" +
+                "        <textarea class=\"form-control\" type=\"text\" placeholder=\"Comentari\" name=\"comment\"/></textarea></br>\n" +
+                "        <select class=\"form-control\" type=\"text\" placeholder=\"puntuacio\" name=\"score\"/>" +
+                "      <option>1</option>\n" +
+                "      <option>2</option>\n" +
+                "      <option>3</option>\n" +
+                "      <option>4</option>\n" +
+                "      <option>5</option>" +
+                "      <option>6</option>\n" +
+                "      <option>7</option>\n" +
+                "      <option>8</option>\n" +
+                "      <option>9</option>\n" +
+                "      <option>10</option>\n" +
+                "       </select><br/>\n" +
                 "        <input type=\"hidden\" name=\"id\" value=" + res.getCodi() + "><br/>" +
                 "        <button type=\"submit\" class=\"btn btn-success\" value=\"Comment\">Afegeix un comentari</button>\n" +
                 "    </form>\n" +
@@ -122,7 +107,6 @@
         </li>
     </ul>
 </div>
-
 
 
 </body>

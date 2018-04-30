@@ -56,5 +56,11 @@ h4 {
 }
 
 .pagination {
-    margin-left: auto;;
+    margin-left: auto;
+    margin-top: 2rem
+;
+}
+
+.form-group{
+    margin-right: 70%;
 }
