@@ -11,6 +11,10 @@ import java.io.IOException;
 
 public class ShowRestaurantServlet extends HttpServlet {
 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        this.doGet(request, response);
+    }
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         LlegirBD bd = new LlegirBD();
         //Nova instància de la classe LlegirBD per poder agafar el paràmetre de la sessió i definir l'atribut

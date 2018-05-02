@@ -1,6 +1,7 @@
 <%@ page import="com.iesemilidarder.RestaurantsApp.core.Restaurant " %>
 <%@ page import="com.iesemilidarder.RestaurantsApp.core.Opinions" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.*" %>
 <%@include file="header.jsp" %>
 
 <%

@@ -144,7 +144,7 @@ public class LlegirBD {
                     THIN_URL, USER, PASSWORD);
 
             Statement stmt = con.createStatement();
-            String query = "INSERT INTO OPINIONS(OPI_RES_CODI,OPI_OBSERVACIO,OPI_PUNTUACIO,OPI_OPINIO_REVISADA,OPI_USU_CODI) VALUES ('" + id + "','" + comment + "'," + score + ",'N','" + usuari + "' )";
+            String query = "INSERT INTO OPINIONS(OPI_RES_CODI,OPI_OBSERVACIO,OPI_PUNTUACIO,OPI_USU_CODI,OPI_OPINIO_REVISADA) VALUES ('" + id + "','" + comment + "'," + score + ",'" + usuari + "','N')";
 
 
             stmt.executeUpdate(query);
