@@ -4,13 +4,15 @@
 <%@ page import="java.util.*" %>
 <%@include file="header.jsp" %>
 
+<body class="fonsPrincipal">
+<div class="container">
 <%
     Restaurant res = (Restaurant) request.getAttribute("res");
 
     if (res != null) {
         out.println("<div class=\"row\">" +
-                " <div class =\"col-md-4\">" + "<img class=\"img-fluid rounded\" src=\" " + res.getImatge() + "\">" + "</div>" +
-                "<div class=\"col-md-8\">" +
+                "<div class=\"container\"><div class =\"col-md-6\">" + "<img class=\"img-fluid rounded\" src=\" " + res.getImatge() + "\">" + "</div>" +
+                "<div class=\"col-md-6 mt-3\">" +
                 "<h3>" + res.getNom() + "</h3>" +
                 "<p>" + res.getCodi() + "</p>" +
                 "<p>" + res.getAdressa() + "</p>" +
@@ -20,14 +22,13 @@
                 "<h5>" + "Nota: " + "</h5>" + "<p>" + res.getMitjana() + "</p>" +
                 "<p>" + res.getLatitud() + "</p>" +
                 "<p>" + res.getLongitud() + "</p>" +
-                "</div >" + "<div>");
+                "</div >" + "</div>" + "</div>");
 
-        out.println("<h3 class=\"espai\">" + "Opinons restaurants:  " + "</h3>");
-
-
+//        out.println("<h3 class=\"espai\">" + "Opinons restaurants:  " + "</h3>");
 
 
-        out.println("<table class=\"table table-striped table-sm\" mr-auto>" +
+        out.println("<div class=\"taula\">" + "<h3 class=\"espai\">" + "Opinons restaurants:  " + "</h3>"
+                + "<table class=\"table table-striped table-sm\" mr-auto>" +
                 "<thead>" +
                 "<tr class=\"table-success\">" +
                 "        <th scope=\"col\">Codi observació </th>\n" +
@@ -46,12 +47,11 @@
                             "        <td>" + opin.getPuntuacio() + "</td>" +
                             "        <td>" + opin.getOpirevisada() + "</td>" +
                             "</tr>"
-
             );
         }
 
 
-        out.println("</tbody>" + "</table>");
+        out.println("</tbody>" + "</table>" + "</div>");
 
     }
 %>
@@ -81,6 +81,7 @@
                 "</div>");
     }
 %>
+</div>
 
 
 <div class="pagination">

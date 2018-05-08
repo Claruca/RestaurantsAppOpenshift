@@ -1,3 +1,4 @@
+<%--
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.iesemilidarder.RestaurantsApp.core.Restaurant" %>
 <%@ page import="java.util.ArrayList" %>
@@ -30,18 +31,23 @@
     </button>
 </nav>
 
-<%--La pàgina d'error és igual al formulari de l'inici--%>
+&lt;%&ndash;La pàgina d'error és igual al formulari de l'inici&ndash;%&gt;
 <%
     String error = (String) request.getAttribute("error");
     out.println("Usuari i/o password incorrectes" + "</br>");
 %>
-<div class="form-group">
-    <form action="loginservlet" method="post">
-        <input class="form-control" type="text" placeholder="Usuari" name="usuari"/><br/><br/>
-        <input class="form-control" type="password" placeholder="Password" name="psw"/><br/><br/>
-        <button type="submit" class="btn btn-success" value="login">Try Again</button>
-    </form>
+<div class="container">
+    <div class="jumbotron vertical-center">
+        <div class="form-group">
+            <h3 class="titulo">Inicia sessió</h3>
+            <form class="formulari" action="loginservlet" method="post">
+                <input class="form-control" type="text" placeholder="Usuari" name="usuari"/><br/><br/>
+                <input class="form-control" type="password" placeholder="Password" name="psw"/><br/><br/>
+                <button type="submit" class="btn btn-lg btn-success" value="login">Try Again</button>
+            </form>
+        </div>
+    </div>
 </div>
 
 </body>
-</html>
+</html>--%>

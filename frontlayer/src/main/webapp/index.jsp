@@ -10,7 +10,7 @@
 
 <main class="fonsPrincipal" role="main">
     <!-- Principal jumbotron -->
-    <div class="jumbotron">
+    <div class="jumbotron imagen">
         <div class="container">
             <h1 class="display-3">Restaurants</h1>
             <h2>Els millors restaurants de Mallorca</h2>
@@ -22,15 +22,15 @@
     <div class="container">
         <!-- fila de columnes -->
         <div class="container">
-            <h4>Llista de recomanacions:</h4>
+            <h4 class="provaGoogleFonts">Llista de recomanacions:</h4>
         </div>
         <% //Codi java que ens treu els valors de la consulta amb un iterador de la arraylist
             LlegirBD llegirBd = new LlegirBD();
             List<Restaurant> ar = llegirBd.mostrarRes(request.getParameter("consulta"));
             for (Restaurant res : ar) {
                 out.println("<div class=\"row\">" +
-                        " <div class =\"col-md-4\">" + "<img class=\"img-fluid rounded\" src=\" " + res.getImatge() + "\">" + "</div>" +
-                        "<div class=\"col-md-8\">" +
+                        " <div class =\"col-md-6\">" + "<img class=\"img-fluid rounded\" src=\" " + res.getImatge() + "\">" + "</div>" +
+                        "<div class=\"col-md-6 mt-3\">" +
                         "<h3>" + res.getNom() + "</h3>" +
                         "<p>" + res.getAdressa() + "</p>" +
                         "<p>" + res.getLlocweb() + "</p>" +

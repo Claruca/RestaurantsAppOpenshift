@@ -5,7 +5,7 @@
 }
 
 .fonsPrincipal {
-    background-color: #cef5ce;
+    background-color: #bbf7bb47;
     margin-top: -45px;
 }
 
@@ -19,7 +19,7 @@
 }
 
 /* La imatge principal de la barra de navegació*/
-.jumbotron {
+.imagen {
     /* background-color: #79d2b0; */
     background-image: url("../img/Roastedcoffee.jpg");
 }
@@ -49,11 +49,20 @@ h2 {
     color: white;
 }
 
+h3 {
+    font-family: 'Exo 2', sans-serif;
+}
+
 h4 {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 2rem;
     color: rgb(26, 26, 26);
+}
+
+.provaGoogleFonts {
+    font-family: 'Exo 2', sans-serif;
+    color: #5a5a5a;
 }
 
 .pagination {
@@ -63,4 +72,30 @@ h4 {
 
 .form-group {
     margin-right: 70%;
+    min-width: 200px;
+    margin-left: 2rem;
+}
+
+.row {
+    background-color: white;
+    padding: 7%;
+    border-radius: 1rem;
+    min-width: 350px;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    color: #5a5a5a;
+}
+
+.taula {
+    /*margin-left: 10%;*/
+    /*margin-right: 10%;*/
+    /*margin-top: 5%;*/
+    /*margin-bottom: 5%;*/
+    padding: 5%
+}
+
+.img-fluid {
+    min-width: 250px;
 }

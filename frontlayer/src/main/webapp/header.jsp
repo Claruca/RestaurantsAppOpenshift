@@ -7,6 +7,7 @@
 <%@ page import="java.util.ArrayList" %>
 
 
+
 <!DOCTYPE html>
 <html lang="ca">
 <head>
@@ -20,6 +21,8 @@
     <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.css" media="screen">
     <link rel="stylesheet" href="https://bootswatch.com/_assets/css/custom.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
 
     <!-- Custom styles for this template -->

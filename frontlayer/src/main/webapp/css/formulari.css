@@ -1,17 +1,33 @@
 
-.form-group{
+.vertical-center {
     text-align: center;
-    width:20%;
-    margin-left: auto;
-    margin-right: auto;
+    height: 100%;
+    width: 100%;
+}
+
+.titulo {
+    color: whitesmoke;
+    font-size: 3rem;
+}
+
+.form-group {
+    display: inline;
+}
+
+.formulari {
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+body {
+    background-image: url("../img/Roastedcoffee.jpg");
 
 }
-/*
-.form-control{
-     margin-left:40%;
-     margin-rigth:40%;
- }
-.h3 {
-    text-align: center
+
+.container {
+    min-width: 300px;
 }
-*/
+
+.jumbotron {
+    background-color: rgba(1, 1, 1, 0.5);
+}

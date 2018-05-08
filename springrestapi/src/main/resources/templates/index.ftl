@@ -74,6 +74,7 @@
             <#--&lt;#&ndash;src="http://lorempixel.com/80/80"&ndash;&gt;-->
             <#--alt="Random Image" width="120" height="120">-->
                 <div class="media-body" style="font-family: monospace; font-size: 1.5rem">
+                    <img src="${item.imatge!""}" alt="imagen" class="img-rounded" height="10%"/>
                     <h5 class="mt-0">Nom ${item.nom!""}</h5>
                     <p>Direcció: ${item.adressa!""}</p>
                     <p>URL: ${item.llocweb!""}</p>
