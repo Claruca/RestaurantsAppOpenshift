@@ -1,4 +1,3 @@
-<%--
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.iesemilidarder.RestaurantsApp.core.Restaurant" %>
 <%@ page import="java.util.ArrayList" %>
@@ -31,7 +30,7 @@
     </button>
 </nav>
 
-&lt;%&ndash;La pàgina d'error és igual al formulari de l'inici&ndash;%&gt;
+<%--La pàgina d'error és igual al formulari de l'inici--%>
 <%
     String error = (String) request.getAttribute("error");
     out.println("Usuari i/o password incorrectes" + "</br>");
@@ -50,4 +49,4 @@
 </div>
 
 </body>
-</html>--%>
+</html>

@@ -14,7 +14,7 @@
         <div class="container">
             <h1 class="display-3">Restaurants</h1>
             <h2>Els millors restaurants de Mallorca</h2>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Saber-ne més &raquo;</a></p>
+            <p><a class="btn btn-primary btn-lg" href="/servlet?id=1" role="button">Saber-ne més &raquo;</a></p>
         </div>
     </div>
 
