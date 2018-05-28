@@ -18,7 +18,6 @@ public class LlegirBD {
     private static final String PASSWORD = "usuari";
 
 
-
     private Object searchDB(String query, Function<ResultSet, Object> f) {
         Connection con;
         Statement stmt;
@@ -44,10 +43,12 @@ public class LlegirBD {
         try {
             String query;
             if (StringUtils.isEmpty(consulta)) {
-                query = "SELECT * FROM restaurants res JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI AND ROWNUM <=5 ORDER BY RES_MITJANA DESC ";
+                query = "SELECT * FROM restaurants res JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI " +
+                        "AND ROWNUM <=5 ORDER BY RES_MITJANA DESC ";
 
             } else {
-                query = "SELECT * FROM restaurants res JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI WHERE lower(res.RES_NOM) LIKE '%" + consulta.toLowerCase() + "%'";
+                query = "SELECT * FROM restaurants res JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI " +
+                        "WHERE lower(res.RES_NOM) LIKE '%" + consulta.toLowerCase() + "%'";
 
             }
 
@@ -85,7 +86,8 @@ public class LlegirBD {
         ArrayList<Opinions> opi = new ArrayList<>();
 
         try {
-            String query = "SELECT * FROM restaurants res JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI LEFT JOIN opinions opi ON opi.OPI_RES_CODI = res.RES_CODI WHERE RES_CODI ='" + id + "'";
+            String query = "SELECT * FROM restaurants res JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI " +
+                    "LEFT JOIN opinions opi ON opi.OPI_RES_CODI = res.RES_CODI WHERE RES_CODI ='" + id + "'";
             Class.forName(DRIVER);
             Connection con = DriverManager.getConnection(THIN_URL, USER, PASSWORD);
 
@@ -115,23 +117,14 @@ public class LlegirBD {
 
                 opi.add(opinio);
             }
-
-
             res.setOpinions(opi);
-
 
             stmt.close();
             con.close();
-
-
         } catch (Exception e)
 
-        {
-            System.out.println((e.toString()));
-
-        }
+        {System.out.println((e.toString()));}
         return res;
-
     }
 
     //Mètode per afegir comentaris si l'usuari està loggejat
@@ -144,7 +137,8 @@ public class LlegirBD {
                     THIN_URL, USER, PASSWORD);
 
             Statement stmt = con.createStatement();
-            String query = "INSERT INTO OPINIONS(OPI_RES_CODI,OPI_OBSERVACIO,OPI_PUNTUACIO,OPI_USU_CODI,OPI_OPINIO_REVISADA) VALUES ('" + id + "','" + comment + "'," + score + ",'" + usuari + "','N')";
+            String query = "INSERT INTO OPINIONS(OPI_RES_CODI,OPI_OBSERVACIO,OPI_PUNTUACIO,OPI_USU_CODI,OPI_OPINIO_REVISADA)" +
+                    " VALUES ('" + id + "','" + comment + "'," + score + ",'" + usuari + "','N')";
 
 
             stmt.executeUpdate(query);
