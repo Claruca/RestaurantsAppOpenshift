@@ -17,14 +17,14 @@
             <p><a class="btn btn-primary btn-lg" href="/servlet?id=1" role="button">Saber-ne més &raquo;</a></p>
         </div>
     </div>
-
+    //Codi java que ens treu els valors de la consulta amb un iterador de la arraylist
     <!-- Contenidor principal -->
     <div class="container">
         <!-- fila de columnes -->
         <div class="container">
             <h4 class="provaGoogleFonts">Llista de recomanacions:</h4>
         </div>
-        <% //Codi java que ens treu els valors de la consulta amb un iterador de la arraylist
+        <%
             LlegirBD llegirBd = new LlegirBD();
             List<Restaurant> ar = llegirBd.mostrarRes(request.getParameter("consulta"));
             for (Restaurant res : ar) {
@@ -37,14 +37,15 @@
                         "<p>" + res.getTelefon() + "</p>" +
                         "<p>" + res.getTipus() + "</p>" +
                         "<h5>" + "Nota: " + "</h5>" + "<p>" + res.getMitjana() + "</p>" +
-                        "<p>" + "<a class=\"btn btn-secondary\" href=\"/servlet?id=" + res.getCodi() + "\" role=\"button\">" + "Més informació &raquo;</a>" + "</p>" +
-                        //El botó anirà a la URL i mirarà que el paràmetre id sigui igual al codi del restaurant
+                        "<p>" + "<a class=\"btn btn-secondary\" href=\"/servlet?id=" + res.getCodi() + "\" role=\"button\">" +
+                        "Més informació &raquo;</a>" + "</p>" +
                         "</div >" +
                         "</div >"
                 );
-
             } %>
 
+
+        //El botó anirà a la URL i mirarà que el paràmetre id sigui igual al codi del restaurant
     </div> <!-- /contenidor principal -->
 
 </main>

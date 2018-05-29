@@ -16,16 +16,13 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "/rest/api/v1")
 public class ApiRestController {
-
-
-//    @Secured("ADMIN") Permite solamente al rol indicado acceder
+    //    @Secured("ADMIN") Permite solamente al rol indicado acceder
     @RequestMapping(path = "/restaurants", method = RequestMethod.GET)
     public List<Restaurant> list() {
-
         LlegirBD dbManager = new LlegirBD();
-//        Llamada al método que nos devuelve una lista de restaurantes
         List<Restaurant> arrData = dbManager.getRestaurants(false);
         return arrData;
     }
-
 }
+
+//        Llamada al método que nos devuelve una lista de restaurantes

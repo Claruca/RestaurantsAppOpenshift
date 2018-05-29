@@ -3,12 +3,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="https://bootswatch.com/4/solar/bootstrap.min.css">
     <title>Prueba rest</title>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
     <a class="navbar-brand" href="/">Restaurants</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,36 +30,31 @@
         </ul>
     </div>
 </nav>
-<h1 id="myTitle">Rest mola y lo sabes!</h1>
-<table width="100%">
-    <tr>
-        <td>
-            <div class="myUsers"></div>
-        </td>
-    </tr>
-</table>
-
-
+<!--<h1 id="myTitle">Rest mola y lo sabes!</h1>-->
 <script
         src="http://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
-<script>
-    $(document).ready(function () {
-        console.log($("#myTitle").html());
-        $.get("/rest/api/v1/restaurants", function (data) {
-            console.log(data);
-            var contentHtml = "<h2>Restaurantes</h2>";
-            $.each(data, function (index, value) {
-                var cell = "<div><p>Nombre:" + value.nom + "</p></div><br>";
-                cell += "<div><p>Telèfon: " + value.telefon + "</p></div><br>";
-                cell += "<div><img class ='align-self-start mr-5 rounded-circle' src='"  + value.imatge + "' alt=\"Random Image\" width=\"120\" height=\"120\"></div><br>";
-                contentHtml += cell;
+
+<div class="myRest">
+    <script>
+        $(document).ready(function () {
+            $.get("/rest/api/v1/restaurants", function (data) {
+                console.log(data);
+                var contentHtml = "<h1>Restaurantes</h1>";
+                $.each(data, function (index, value) {
+                    var cell = "<div class='text-center d-inline-block p-3 border border-secondary' style='width: 300px; margin: 3%;'>";
+                    cell += "<div><h3>Nombre:" + value.nom + "</h3></div>";
+                    cell += "<div><p>Teléfono: " + value.telefon + "</p></div>";
+                    cell += "<div><img class ='mr-5 rounded-circle' src='" + value.imatge + "' alt=\"Random Image\" width=\"120\" height=\"120\"></div></div>";
+                    contentHtml += cell;
+                });
+
+                $(".myRest").html(contentHtml);
+                console.log("Load was performed.");
             });
-            $(".myUsers").html(contentHtml);
-            console.log("Load was performed.");
         });
-    });
-</script>
+    </script>
+</div>
 </body>
 </html>

@@ -9,16 +9,18 @@
     <meta name="author" content="">
 
     <!-- Bootstrap CSS -->
+
     <link rel="stylesheet" href="https://bootswatch.com/4/solar/bootstrap.min.css">
           <#--integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">-->
     <link rel="stylesheet" type="stylesheet" href="../css/loginsheet.css">
+
 
     <#--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
           integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">-->
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
     <a class="navbar-brand" href="/">Restaurants</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +44,7 @@
 
     <div class="container">
 
-        <form style="margin-left:100px; margin-right: 500px" role="form" action="/login" method="post">
+        <form class="w-25" style="min-width: 200px;" role="form" action="/login" method="post">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
             <div>

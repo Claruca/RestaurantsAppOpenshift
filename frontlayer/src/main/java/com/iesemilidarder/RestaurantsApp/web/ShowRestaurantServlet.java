@@ -16,12 +16,13 @@ public class ShowRestaurantServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        LlegirBD bd = new LlegirBD();
         //Nova instància de la classe LlegirBD per poder agafar el paràmetre de la sessió i definir l'atribut
-
+        LlegirBD bd = new LlegirBD();
         String id = request.getParameter("id");
         Restaurant res = bd.mostrarResInfo(id);
         request.setAttribute("res", res);
         request.getRequestDispatcher("mostrarRestaurants").forward(request, response);
     }
 }
+
+

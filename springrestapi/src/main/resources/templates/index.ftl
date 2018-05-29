@@ -5,12 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="https://bootswatch.com/4/solar/bootstrap.min.css">
+
 
     <!--Bootstrap basico-->
 <#--  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
         integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">-->
-    <#--<link rel="stylesheet" href="../css/loginsheet.css">-->
+<#--<link rel="stylesheet" href="../css/loginsheet.css">-->
 
 <#--https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css-->
 
@@ -18,7 +21,7 @@
     <title>${title!""}</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
     <a class="navbar-brand" href="/">Restaurants</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +38,7 @@
             <li class="nav-item">
                 <a class="nav-link disabled" href="/ajax.html">Version Ajax</a>
             <#--<li class="nav-item">-->
-                <#--<a class="nav-link disabled" href="/login">Login</a>-->
+            <#--<a class="nav-link disabled" href="/login">Login</a>-->
             <#--</li>-->
             <li class="nav-item">
             <#--<@security.authorize ifAnyGranted="ROLE_ADMIN">
@@ -43,7 +46,6 @@
         </@security.authorize>-->
             </li>
         </ul>
-        <button
     </div>
 </nav>
 
@@ -58,35 +60,33 @@
         </div>
         <div class="col-md-5">
             <img src="https://www.w3schools.com/bootstrap/sanfran.jpg"
-                 alt="imagen" class="img-rounded" height="80%" width="auto"/>
+                 alt="imagen" class="rounded-circle pt-4" height="80%" width="auto"/>
         </div>
     </div>
 </div>
 
 <#--La variable posts a la que hacemos referencia en el Launcher tendrá la info de la BD-->
+<div class="container mx-auto">
 <#if list??>
-<div class="row center mt-2">
-    <#list list as item> <#-- Llamamos a los posts item y los listamos-->
-        <div class="col-md-5 text-center" >
-            <div class="media mt-5 ml-5 mx-auto">
-            <#--<img class="align-self-start mr-5 rounded-circle"-->
-            <#--src="${item.imatge!""}"-->
-            <#--&lt;#&ndash;src="http://lorempixel.com/80/80"&ndash;&gt;-->
-            <#--alt="Random Image" width="120" height="120">-->
-                <div class="media-body" style="font-family: monospace; font-size: 1.5rem">
-                    <img src="${item.imatge!""}" alt="imagen" class="w-50 p-3" style="min-width: 250px; max-width: 250px;"/>
-                    <h5 class="mt-0">Nom ${item.nom!""}</h5>
-                    <p>Direcció: ${item.adressa!""}</p>
-                    <p>URL: ${item.llocweb!""}</p>
-                    <p>Telèfon: ${item.telefon!""}</p>
-                    <p>${item.tipus!""}</p>
-                    <p>Nota: ${item.mitjana!""}</p>
+    <div class="row center mt-2">
+        <#list list as item> <#-- Llamamos a los posts item y los listamos-->
+            <div class="col-md-5 text-center border border-white rounded m-2" style="width: 500px; min-width: 400px">
+                <div class="media mt-5 ml-5 mx-auto">
+                    <div class="media-body" style="font-family: monospace; font-size: 1.5rem">
+                        <img src="${item.imatge!""}" alt="imagen" class="w-50 p-3 rounded-circle w-25"/>
+                        <h5 class="mt-0">Nom ${item.nom!""}</h5>
+                        <p>Direcció: ${item.adressa!""}</p>
+                        <p>URL: ${item.llocweb!""}</p>
+                        <p>Telèfon: ${item.telefon!""}</p>
+                        <p>${item.tipus!""}</p>
+                        <p>Nota: ${item.mitjana!""}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </#list>
-</div>
+        </#list>
+    </div>
 </#if>
+</div>
 </main>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->

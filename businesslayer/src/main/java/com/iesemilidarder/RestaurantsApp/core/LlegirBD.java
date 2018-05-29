@@ -84,13 +84,11 @@ public class LlegirBD {
     public Restaurant mostrarResInfo(String id) {
         Restaurant res = null;
         ArrayList<Opinions> opi = new ArrayList<>();
-
         try {
             String query = "SELECT * FROM restaurants res JOIN trestaurants tres ON tres.TRS_CODI = res.RES_TRS_CODI " +
                     "LEFT JOIN opinions opi ON opi.OPI_RES_CODI = res.RES_CODI WHERE RES_CODI ='" + id + "'";
             Class.forName(DRIVER);
             Connection con = DriverManager.getConnection(THIN_URL, USER, PASSWORD);
-
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(query);
 
@@ -122,7 +120,6 @@ public class LlegirBD {
             stmt.close();
             con.close();
         } catch (Exception e)
-
         {System.out.println((e.toString()));}
         return res;
     }
@@ -155,11 +152,8 @@ public class LlegirBD {
         List<Restaurant> arrayRes = new ArrayList<>();
         ResultSetMapper<Restaurant> mapper = new ResultSetMapper<>();
         try {
-            final String query = "SELECT R.RES_CODI,R.RES_NOM,R.RES_ADRECA,R.RES_WEB,R.RES_TELEFON,RES_RS_CODI,R.RES_MITJANA, TR.TRS_DESCRIPCIO FROM " +
-                    "RESTAURANTS R,TRESTAURANTS TR WHERE  R.RES_TRS_CODI = TR.TRS_CODI";
+            final String query = "SELECT R.RES_CODI,R.RES_NOM,R.RES_ADRECA,R.RES_WEB,R.RES_TELEFON,R.RES_MITJANA, R.RES_URL_IMG, TR.TRS_DESCRIPCIO FROM RESTAURANTS R,TRESTAURANTS TR WHERE  R.RES_TRS_CODI = TR.TRS_CODI";
 
-//            final String query = "SELECT R.RES_CODI,R.RES_NOM,R.RES_ADRECA,R.RES_WEB,R.RES_TELEFON,R.RES_URL_IMG,R.RES_MITJANA, TR.TRS_DESCRIPCIO FROM " +
-//                    "RESTAURANTS R,TRESTAURANTS TR WHERE  R.RES_TRS_CODI = TR.TRS_CODI";
             if (search) {
                 //VERSION GENERICS
                 Class.forName(DRIVER);

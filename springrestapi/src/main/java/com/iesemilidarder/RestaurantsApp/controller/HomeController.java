@@ -18,7 +18,6 @@ public class HomeController {
         String name = "Restaurants";
         LlegirBD dbManager = new LlegirBD();
         List<Restaurant> arrData = dbManager.mostrarRes(StringUtils.EMPTY);
-
         model.addAttribute("name", name);
         model.addAttribute("list", arrData); //Llamamos a la lista array
         model.addAttribute("dbManager", dbManager);
